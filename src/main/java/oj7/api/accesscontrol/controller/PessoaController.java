@@ -1,14 +1,11 @@
 package oj7.api.accesscontrol.controller;
 
 import java.util.List;
-import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springdoc.api.annotations.ParameterObject;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -45,7 +42,7 @@ public class PessoaController {
 
   //ex.: pageable?size=5&page=1&sort=nmFunc
   @GetMapping(path = "pageable")
-  public ResponseEntity<Page<Pessoa>> page(Pageable pageable){
+  public ResponseEntity<Page<Pessoa>> page(@ParameterObject Pageable pageable){
     return ResponseEntity.ok(pessoaService.listAllPageble(pageable));
   }
 
@@ -56,12 +53,15 @@ public class PessoaController {
     return ResponseEntity.ok(pessoa);
   }
 
+  @GetMapping(path = "findbynip")
+  public ResponseEntity<List<Pessoa>> findbynip(@RequestParam Long nip){
+    return ResponseEntity.ok(pessoaService.findByNrNip(nip));
+  }
+
   @GetMapping(path = "findbycpf")
   public ResponseEntity<Pessoa> findByCpf(@RequestParam String cpf){
-    Optional<Pessoa> pessoa = Optional.ofNullable(pessoaService.findByCpf(cpf));
-    if(pessoa.isPresent())
-      return ResponseEntity.ok(pessoa.get());
-    return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    Pessoa pessoa = pessoaService.findByCpf(cpf);
+    return ResponseEntity.ok(pessoa);
   }
 
   // @CrossOrigin(origins = "http://localhost:3000")
