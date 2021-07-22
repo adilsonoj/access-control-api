@@ -1,18 +1,13 @@
 package oj7.api.accesscontrol.service;
 
 import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
-import io.jsonwebtoken.Claims;
-import oj7.api.accesscontrol.Exceptions.BadRequestException;
+import oj7.api.accesscontrol.Exceptions.NoContentException;
 import oj7.api.accesscontrol.mapper.PessoaMapper;
 import oj7.api.accesscontrol.model.Pessoa;
 import oj7.api.accesscontrol.model.PessoaKey;
@@ -30,14 +25,9 @@ public class PessoaService {
     return repository.findAll();
   }
 
-  // public Pessoa findById(PessoaKey key) {
-  //   return repository.findById(key)
-  //                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Pessoa não encontrada"));
-  // }
-
   public Pessoa findById(PessoaKey key) {
     return repository.findById(key)
-                  .orElseThrow(() -> new NoSuchElementException("Pessoa não encontrada"));
+                  .orElseThrow(() -> new NoContentException("Pessoa não encontrada"));
   }
 
   public Page<Pessoa> listAllPageble(Pageable pageable) {
@@ -48,8 +38,13 @@ public class PessoaService {
     return repository.findByNmFuncStartsWith(name);
   }
 
+  public List<Pessoa> findByNrNip(Long nip) {
+    return repository.findByNrNip(nip);
+  }
+
   public Pessoa findByCpf(String cpf){
-    return repository.findByCpf(cpf);
+    return repository.findByCpf(cpf)
+                  .orElseThrow(() -> new NoContentException("Pessoa não encontrada"));
   }
 
   public Pessoa save(PessoaPostRequestBody pessoaPostRequestBody) {
@@ -58,8 +53,7 @@ public class PessoaService {
   }
 
   public String getToken(){
-    String jwt = JwtUtil.createJwt();
-    return jwt;
+    return JwtUtil.createJwt();
   }
   
 }

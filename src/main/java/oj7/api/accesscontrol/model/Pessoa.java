@@ -22,37 +22,52 @@ import lombok.NoArgsConstructor;
 @IdClass(PessoaKey.class)
 public class Pessoa {
   @Id
-  @Column(name="nr_nip")
+  @Column(name="NR_NIP")
   private Long nrNip;
 
   @Id
-  @Column(name="cd_nind")
+  @Column(name="CD_NIND")
   private String cdNind;
 
-  @Column(name = "nr_cpf_func_01")
+  @Column(name = "NR_CPF_FUNC_01")
 	private String nrCpfFunc01;
 	
-	@Column(name = "nr_cpf_func_02")
+	@Column(name = "NR_CPF_FUNC_02")
 	private String nrCpfFunc02;
 	
-	@Column(name = "nr_cpf_func_03")
+	@Column(name = "NR_CPF_FUNC_03")
 	private String nrCpfFunc03;
 	
-	@Column(name = "id_dv_cpf_func")
+	@Column(name = "ID_DV_CPF_FUNC")
 	private String idDvCpfFunc;
 	
-	@Column(name = "nm_func")
+	@Column(name = "NM_FUNC")
 	private String nmFunc;
 
-  @Column(name = "nm_mae")
+  @Column(name = "NM_MAE")
 	private String nmMae;
 
-  @Column(name = "cd_uf_nasc")
+  @Column(name = "CD_UF_NASC")
 	private String cdUfNasc;
 
-  @Column(name = "dtNasc")
+  @Column(name = "DT_NASC")
 	private LocalDate dtNasc;
 
   @Column(name = "CD_RESC")
 	private String cdResc;
+
+  @Column(name = "CD_SUPE")
+	private String cdSupe;
+
+  @Column(name = "CD_DEPT")
+	private String cdDept;
+
+  @Column(name = "CD_DIVS")
+	private String cdDivs;
+
+  @Column(name = "CD_SCAO")
+	private String cdScao;
+  
+  @Column(name = "CD_SETR")
+	private String cdSetr;
 }
