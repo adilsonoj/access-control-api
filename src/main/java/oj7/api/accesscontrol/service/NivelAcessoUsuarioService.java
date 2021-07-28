@@ -20,6 +20,11 @@ public class NivelAcessoUsuarioService {
     return nauRepository.getByCpf(cpf);
   }
 
+  public List<NivelAcessoUsuario> findByCpfProj(String cpf, String cdProj, String idModu) {
+    String projeto = cdProj.concat(idModu);
+    return nauRepository.findByCpfProj(cpf, projeto);
+  }
+
   @Transactional
   public NivelAcessoUsuario save(NivelAcessoUsuario nivelRequest) {
     return nauRepository.save(nivelRequest);

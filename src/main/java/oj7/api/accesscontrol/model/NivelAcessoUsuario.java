@@ -24,4 +24,12 @@ public class NivelAcessoUsuario implements Serializable{
 
   @EmbeddedId
   private NivelAcessoUsuarioKey key;
+
+  public String getOi(){
+    return (this.key.getCdSupe()+
+            this.key.getCdDept()+
+            this.key.getCdDivs()+
+            this.key.getCdScao()+
+            this.key.getCdSetr()).trim();
+  }
 }

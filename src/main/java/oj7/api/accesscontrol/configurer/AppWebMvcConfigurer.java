@@ -21,6 +21,6 @@ public class AppWebMvcConfigurer implements WebMvcConfigurer {
 
   @Override
   public void addCorsMappings(CorsRegistry registry) {
-    registry.addMapping("http://localhost:3000");
+    registry.addMapping("http://localhost:3000/");
   }
 }

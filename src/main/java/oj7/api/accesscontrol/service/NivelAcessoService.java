@@ -2,6 +2,8 @@ package oj7.api.accesscontrol.service;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,10 @@ public class NivelAcessoService {
 
   public List<NivelAcesso> findByCdProjIdModu(String cdProj, String idModu){
     return naRepository.getByCdProjIdModu(cdProj, idModu);
+  }
+
+  public Page<NivelAcesso> findAll(Pageable pageable) {
+    return naRepository.findAll(pageable);
   }
   
 }

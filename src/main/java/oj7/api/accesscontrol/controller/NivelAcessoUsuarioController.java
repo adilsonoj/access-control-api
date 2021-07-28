@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,6 +17,7 @@ import oj7.api.accesscontrol.model.NivelAcessoUsuario;
 import oj7.api.accesscontrol.service.NivelAcessoUsuarioService;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping(path = "nivelusuario")
 @RequiredArgsConstructor
 public class NivelAcessoUsuarioController {
@@ -24,6 +26,11 @@ public class NivelAcessoUsuarioController {
   @GetMapping
   public ResponseEntity<List<NivelAcessoUsuario>> findByCpf(@RequestParam String cpf){
     return ResponseEntity.ok(nauService.findByCpf(cpf));
+  }
+
+  @GetMapping(path = "findByCpfProj")
+  public ResponseEntity<List<NivelAcessoUsuario>> findByCpfProj(@RequestParam String cpf, @RequestParam String cdProj, @RequestParam String idModu){
+    return ResponseEntity.ok(nauService.findByCpfProj(cpf, cdProj, idModu));
   }
 
   @PostMapping

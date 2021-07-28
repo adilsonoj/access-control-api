@@ -70,4 +70,8 @@ public class Pessoa {
   
   @Column(name = "CD_SETR")
 	private String cdSetr;
+
+  public String getCpf(){
+    return this.nrCpfFunc01+this.nrCpfFunc02+this.nrCpfFunc03+this.idDvCpfFunc;
+  }
 }

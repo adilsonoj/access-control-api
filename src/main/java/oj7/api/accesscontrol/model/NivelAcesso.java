@@ -10,6 +10,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -28,6 +31,7 @@ public class NivelAcesso implements Serializable{
   private NivelAcessoKey key;
 
   @OneToOne
+  @NotFound(action = NotFoundAction.IGNORE)
   @JoinColumn(name = "CD_NIVL_ACES", referencedColumnName = "CD_NIVL_ACES",  insertable = false, updatable = false)
   private CodigoNivelAcesso codigoNivelAcesso;
 }

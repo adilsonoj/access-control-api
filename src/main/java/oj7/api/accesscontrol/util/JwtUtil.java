@@ -58,13 +58,13 @@ public class JwtUtil {
     return parseClaimsJws.getBody();
 }
 
-public static void main(String[] args) {
-  String createJwt = createJwt();
-  System.out.println("encode");
-  System.out.println(createJwt);
-  System.out.println("decode");
-  System.out.println(decodeJWT(createJwt));
+// public static void main(String[] args) {
+//   String createJwt = createJwt();
+//   System.out.println("encode");
+//   System.out.println(createJwt);
+//   System.out.println("decode");
+//   System.out.println(decodeJWT(createJwt));
 
-}
+// }
   
 }
