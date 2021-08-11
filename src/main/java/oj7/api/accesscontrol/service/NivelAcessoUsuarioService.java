@@ -29,4 +29,9 @@ public class NivelAcessoUsuarioService {
   public NivelAcessoUsuario save(NivelAcessoUsuario nivelRequest) {
     return nauRepository.save(nivelRequest);
   }
+
+  @Transactional
+  public void delete(NivelAcessoUsuario nivelRequest) {
+     nauRepository.delete(nivelRequest);
+  }
 }
