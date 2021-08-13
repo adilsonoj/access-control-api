@@ -21,7 +21,6 @@ import oj7.api.accesscontrol.requests.PessoaPostRequestBody;
 import oj7.api.accesscontrol.service.PessoaService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping(path = "pessoas")
 @RequiredArgsConstructor
 public class PessoaController {

@@ -14,7 +14,6 @@ import oj7.api.accesscontrol.model.Oi;
 import oj7.api.accesscontrol.service.OiService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping(path = "oi")
 @RequiredArgsConstructor
 public class OiController {

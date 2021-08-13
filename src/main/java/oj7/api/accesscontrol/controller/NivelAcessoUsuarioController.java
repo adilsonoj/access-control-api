@@ -18,7 +18,6 @@ import oj7.api.accesscontrol.model.NivelAcessoUsuario;
 import oj7.api.accesscontrol.service.NivelAcessoUsuarioService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping(path = "nivelusuario")
 @RequiredArgsConstructor
 public class NivelAcessoUsuarioController {
