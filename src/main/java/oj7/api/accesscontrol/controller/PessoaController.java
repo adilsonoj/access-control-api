@@ -22,6 +22,7 @@ import oj7.api.accesscontrol.service.PessoaService;
 
 @RestController
 @RequestMapping(path = "pessoas")
+@CrossOrigin(origins = "*")
 @RequiredArgsConstructor
 public class PessoaController {
   final PessoaService pessoaService;

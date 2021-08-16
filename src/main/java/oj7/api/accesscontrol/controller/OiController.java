@@ -15,6 +15,7 @@ import oj7.api.accesscontrol.service.OiService;
 
 @RestController
 @RequestMapping(path = "oi")
+@CrossOrigin(origins = "*")
 @RequiredArgsConstructor
 public class OiController {
   final OiService service;

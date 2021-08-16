@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <header th:replace="common/header.html::header"></header>
+  <body>
+    <div id="main">
+      <v-container>
+        <v-row class="d-flex justify-center align-center">
+          <v-col cols="12" sm="6" md="3">
+            <v-text-field label="CPF" v-model="cpf"></v-text-field>
+          </v-col>
+          <v-col cols="12" sm="6" md="6">
+            <v-banner elevation="2">
+              <span v-if="pessoa.nmFunc"
+                >{{ pessoa.nrNip }} - {{ pessoa.nmFunc }}</span
+              >
+            </v-banner>
+          </v-col>
+        </v-row>
+        <v-row class="d-flex justify-center align-center">
+          <v-col cols="12" sm="6" md="3" data-app>
+            <v-autocomplete
+              v-model="moduloSelecionado"
+              :items="modulos.map((e) => e.cdProj + e.idModu)"
+              dense
+              label="Modulo"
+              :disabled="!pessoa.nmFunc"
+              @change="handleChangeModulo"
+            ></v-autocomplete>
+          </v-col>
+          <v-col cols="12" sm="6" md="3" data-app>
+            <v-autocomplete
+              v-model="oiSelecionado"
+              :items="listaOi"
+              item-label="oi"
+              dense
+              label="OI"
+              @update:search-input="handleInputOi"
+            ></v-autocomplete>
+          </v-col>
+        </v-row>
+        <v-layout align-start justify-center>
+          <v-flex xs6 class="elevation-1 pa-3 ma-2">
+            <v-list v-if="perfis" dense>
+              <v-subheader> PERFIL </v-subheader>
+              <!-- <draggable
+                v-model="perfis"
+                :options="{ group: 'people' }"
+                style="min-height: 10px"
+              > -->
+              <v-list-item v-for="(item, index) in perfis" :key="index">
+                <v-list-item-content>
+                  <v-list-item-title
+                    v-text="item.codigoNivelAcesso.idNivlAces"
+                  ></v-list-item-title>
+
+                  <!-- <v-list-item-subtitle
+                    v-text="item.codigoNivelAcesso.idNivlAces"
+                  ></v-list-item-subtitle> -->
+                </v-list-item-content>
+
+                <v-list-item-action>
+                  <v-btn icon @click="associaPerfil(item)">
+                    <v-icon color="grey lighten-1">mdi-arrow-right</v-icon>
+                  </v-btn>
+                </v-list-item-action>
+              </v-list-item>
+              <!-- </draggable> -->
+            </v-list>
+          </v-flex>
+          <v-flex xs6 class="elevation-1 pa-3 ma-2">
+            <v-list v-if="perfisAssociados" two-line>
+              <v-subheader>
+                PERFIL ASSOCIADO: {{ moduloSelecionado }}</v-subheader
+              >
+              <!-- <draggable
+                v-model="perfisAssociados"
+                :options="{ group: 'people' }"
+                style="min-height: 10px"
+              > -->
+              <v-list-item
+                v-for="(item, index) in perfisAssociados"
+                :key="index"
+              >
+                <v-list-item-content>
+                  <v-list-item-title
+                    v-text="item.codigoNivelAcesso.idNivlAces"
+                  ></v-list-item-title>
+                  <v-list-item-subtitle>OI: {{ item.oi }}</v-list-item-subtitle>
+                </v-list-item-content>
+
+                <v-list-item-action>
+                  <v-btn icon @click="desassociaPerfil(item)">
+                    <v-icon color="grey lighten-1">mdi-close</v-icon>
+                  </v-btn>
+                </v-list-item-action>
+              </v-list-item>
+              <!-- </draggable> -->
+            </v-list>
+          </v-flex>
+        </v-layout>
+        <!-- <snackbar
+        :open="snack.open"
+        :text="snack.text"
+        :color="snack.color"
+        @close="snack.open = false"
+      /> -->
+
+        <v-snackbar
+          v-model="snack.open"
+          :timeout="snack.timeout"
+          right
+          :color="snack.color"
+        >
+          {{ snack.text }}
+          <template v-slot:action="{ attrs }">
+            <v-btn icon v-bind="attrs" @click="() => snack.open = false">
+              <v-icon small dark> mdi-close </v-icon>
+            </v-btn>
+          </template>
+        </v-snackbar>
+      </v-container>
+    </div>
+
+    <script src="js/custom/perfil.js"></script>
+  </body>
+</html>

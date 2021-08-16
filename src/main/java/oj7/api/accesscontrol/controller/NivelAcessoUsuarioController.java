@@ -19,6 +19,7 @@ import oj7.api.accesscontrol.service.NivelAcessoUsuarioService;
 
 @RestController
 @RequestMapping(path = "nivelusuario")
+@CrossOrigin(origins = "*")
 @RequiredArgsConstructor
 public class NivelAcessoUsuarioController {
   final NivelAcessoUsuarioService nauService;

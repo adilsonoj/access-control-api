@@ -1,0 +1,14 @@
+package oj7.api.accesscontrol.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping(path = "/")
+public class IndexController {
+
+  @RequestMapping()
+  public String index(){
+    return "pages/perfil/index.html";
+  }
+}

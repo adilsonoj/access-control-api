@@ -18,6 +18,7 @@ import oj7.api.accesscontrol.service.NivelAcessoService;
 
 @RestController
 @RequestMapping(path = "nivelacesso")
+@CrossOrigin(origins = "*")
 @RequiredArgsConstructor
 public class NivelAcessoController {
   final NivelAcessoService naService;
