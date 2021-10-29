@@ -64,7 +64,7 @@ new Vue({
       };
 
       axios
-        .post("http://localhost:8082/nivelusuario", payload)
+        .post("/nivelusuario", payload)
         .then((response) => {
           if (response.status != 201) throw "error";
 
@@ -110,7 +110,7 @@ new Vue({
       console.log(payload);
       var config = {
         method: "delete",
-        url: "http://localhost:8082/nivelusuario",
+        url: "/nivelusuario",
         headers: {
           "Content-Type": "application/json",
         },

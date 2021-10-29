@@ -50,6 +50,7 @@
               <v-list-item v-for="(item, index) in perfis" :key="index">
                 <v-list-item-content>
                   <v-list-item-title
+                    v-if="item.codigoNivelAcesso"
                     v-text="item.codigoNivelAcesso.idNivlAces"
                   ></v-list-item-title>
 
@@ -120,7 +121,5 @@
         </v-snackbar>
       </v-container>
     </div>
-
-    <script src="js/custom/perfil.js"></script>
   </body>
 </html>
