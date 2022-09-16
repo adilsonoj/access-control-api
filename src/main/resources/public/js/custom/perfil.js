@@ -1,5 +1,5 @@
 new Vue({
-  el: "#main",
+  el: "#app",
   vuetify: new Vuetify(),
   data: {
     modulos: [],
@@ -15,7 +15,7 @@ new Vue({
   },
   watch: {
     cpf(val) {
-      if (val.length < 11) {
+      if (!val || val.length < 11) {
         this.pessoa = { nmFunc: "" };
         return;
       }

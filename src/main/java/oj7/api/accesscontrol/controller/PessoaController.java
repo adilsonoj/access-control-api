@@ -9,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import lombok.RequiredArgsConstructor;
 import oj7.api.accesscontrol.model.Pessoa;
 import oj7.api.accesscontrol.model.PessoaKey;
-import oj7.api.accesscontrol.requests.PessoaPostRequestBody;
 import oj7.api.accesscontrol.service.PessoaService;
 
 @RestController
@@ -32,10 +30,7 @@ public class PessoaController {
     return ResponseEntity.ok(pessoaService.list());
   }
 
-  @PostMapping
-  public ResponseEntity<Pessoa> save(PessoaPostRequestBody pessoaPostRequestBody){
-    return ResponseEntity.ok(pessoaService.save(pessoaPostRequestBody));
-  }
+
 
   @GetMapping(path = "likename")
   public ResponseEntity<List<Pessoa>> listLikeName(@RequestParam String name){

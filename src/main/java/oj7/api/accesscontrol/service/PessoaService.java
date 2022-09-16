@@ -8,11 +8,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import oj7.api.accesscontrol.Exceptions.NoContentException;
-import oj7.api.accesscontrol.mapper.PessoaMapper;
 import oj7.api.accesscontrol.model.Pessoa;
 import oj7.api.accesscontrol.model.PessoaKey;
 import oj7.api.accesscontrol.repository.PessoaRepository;
-import oj7.api.accesscontrol.requests.PessoaPostRequestBody;
 import oj7.api.accesscontrol.util.JwtUtil;
 
 @Service
@@ -47,10 +45,7 @@ public class PessoaService {
                   .orElseThrow(() -> new NoContentException("Pessoa não encontrada"));
   }
 
-  public Pessoa save(PessoaPostRequestBody pessoaPostRequestBody) {
-    Pessoa pessoa = PessoaMapper.INSTANCE.toPessoa(pessoaPostRequestBody);
-    return pessoa;
-  }
+
 
   public String getToken(){
     return JwtUtil.createJwt();

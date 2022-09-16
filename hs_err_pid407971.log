@@ -1,0 +1,476 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00007f74245fd0ad, pid=407971, tid=993969
+#
+# JRE version: OpenJDK Runtime Environment (11.0.15+10) (build 11.0.15+10-Ubuntu-0ubuntu0.20.04.1)
+# Java VM: OpenJDK 64-Bit Server VM (11.0.15+10-Ubuntu-0ubuntu0.20.04.1, mixed mode, sharing, tiered, compressed oops, g1 gc, linux-amd64)
+# Problematic frame:
+# C  [libjimage.so+0x30ad]
+#
+# No core dump will be written. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+# If you would like to submit a bug report, please visit:
+#   Unknown
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,address=localhost:45663,server=n,suspend=y -Dfile.encoding=UTF-8 oj7.api.accesscontrol.AccesscontrolApplication
+
+Host: Intel(R) Core(TM) i7-7700T CPU @ 2.90GHz, 8 cores, 15G, Ubuntu 20.04.4 LTS
+Time: Wed Jun 29 15:37:39 2022 -03 elapsed time: 110187.978009 seconds (1d 6h 36m 27s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007f7368151800):  JavaThread "restartedMain" [_thread_in_vm, id=993969, stack(0x00007f73e9694000,0x00007f73e9795000)]
+
+Stack: [0x00007f73e9694000,0x00007f73e9795000],  sp=0x00007f73e978ce00,  free space=995k
+Native frames: (J=compiled Java code, A=aot compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [libjimage.so+0x30ad]
+C  [libjimage.so+0x3ca2]
+C  [libjimage.so+0x4191]  JIMAGE_FindResource+0xf1
+V  [libjvm.so+0x5baef1]
+V  [libjvm.so+0x5bd511]
+V  [libjvm.so+0xdf4bbd]
+V  [libjvm.so+0xdf375a]
+V  [libjvm.so+0x9210cb]  JVM_FindClassFromBootLoader+0x10b
+C  [libjava.so+0x1044b]  Java_java_lang_ClassLoader_findBootstrapClass+0x8b
+J 760  java.lang.ClassLoader.findBootstrapClass(Ljava/lang/String;)Ljava/lang/Class; java.base@11.0.15 (0 bytes) @ 0x00007f7410324e8f [0x00007f7410324dc0+0x00000000000000cf]
+J 759 c1 java.lang.ClassLoader.findBootstrapClassOrNull(Ljava/lang/String;)Ljava/lang/Class; java.base@11.0.15 (16 bytes) @ 0x00007f7408f3e40c [0x00007f7408f3e2e0+0x000000000000012c]
+J 2822 c2 jdk.internal.loader.BuiltinClassLoader.loadClassOrNull(Ljava/lang/String;Z)Ljava/lang/Class; java.base@11.0.15 (143 bytes) @ 0x00007f741047649c [0x00007f7410475a40+0x0000000000000a5c]
+J 4482 c2 jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class; java.base@11.0.15 (40 bytes) @ 0x00007f741060f628 [0x00007f741060f5c0+0x0000000000000068]
+J 4354 c2 java.lang.ClassLoader.loadClass(Ljava/lang/String;)Ljava/lang/Class; java.base@11.0.15 (7 bytes) @ 0x00007f74105e3bf4 [0x00007f74105e3ba0+0x0000000000000054]
+j  org.springframework.beans.BeanUtils.findEditorByConvention(Ljava/lang/Class;)Ljava/beans/PropertyEditor;+115
+j  org.springframework.boot.context.properties.bind.BindConverter$TypeConverterConverter.getPropertyEditor(Ljava/lang/Class;)Ljava/beans/PropertyEditor;+63
+j  org.springframework.boot.context.properties.bind.BindConverter$TypeConverterConverter.matches(Lorg/springframework/core/convert/TypeDescriptor;Lorg/springframework/core/convert/TypeDescriptor;)Z+5
+j  org.springframework.core.convert.support.GenericConversionService$ConvertersForPair.getConverter(Lorg/springframework/core/convert/TypeDescriptor;Lorg/springframework/core/convert/TypeDescriptor;)Lorg/springframework/core/convert/converter/GenericConverter;+45
+J 3819 c1 org.springframework.core.convert.support.GenericConversionService$Converters.getRegisteredConverter(Lorg/springframework/core/convert/TypeDescriptor;Lorg/springframework/core/convert/TypeDescriptor;Lorg/springframework/core/convert/converter/GenericConverter$ConvertiblePair;)Lorg/springframework/core/convert/converter/GenericConverter; (93 bytes) @ 0x00007f74096ba5ac [0x00007f74096ba2e0+0x00000000000002cc]
+j  org.springframework.core.convert.support.GenericConversionService$Converters.find(Lorg/springframework/core/convert/TypeDescriptor;Lorg/springframework/core/convert/TypeDescriptor;)Lorg/springframework/core/convert/converter/GenericConverter;+98
+J 5271 c1 org.springframework.core.convert.support.GenericConversionService.getConverter(Lorg/springframework/core/convert/TypeDescriptor;Lorg/springframework/core/convert/TypeDescriptor;)Lorg/springframework/core/convert/converter/GenericConverter; (106 bytes) @ 0x00007f74099c2ed4 [0x00007f74099c2a60+0x0000000000000474]
+J 6921 c1 org.springframework.core.convert.support.GenericConversionService.canConvert(Lorg/springframework/core/convert/TypeDescriptor;Lorg/springframework/core/convert/TypeDescriptor;)Z (29 bytes) @ 0x00007f7409de1f6c [0x00007f7409de1d80+0x00000000000001ec]
+j  org.springframework.boot.context.properties.bind.BindConverter$TypeConverterConversionService.canConvert(Lorg/springframework/core/convert/TypeDescriptor;Lorg/springframework/core/convert/TypeDescriptor;)Z+22
+j  org.springframework.boot.context.properties.bind.BindConverter.convert(Ljava/lang/Object;Lorg/springframework/core/convert/TypeDescriptor;Lorg/springframework/core/convert/TypeDescriptor;)Ljava/lang/Object;+40
+J 3979 c1 org.springframework.boot.context.properties.bind.BindConverter.convert(Ljava/lang/Object;Lorg/springframework/boot/context/properties/bind/Bindable;)Ljava/lang/Object; (14 bytes) @ 0x00007f7409710e8c [0x00007f7409710b20+0x000000000000036c]
+j  org.springframework.boot.context.properties.bind.Binder.bindProperty(Lorg/springframework/boot/context/properties/bind/Bindable;Lorg/springframework/boot/context/properties/bind/Binder$Context;Lorg/springframework/boot/context/properties/source/ConfigurationProperty;)Ljava/lang/Object;+31
+J 6285 c1 org.springframework.boot.context.properties.bind.Binder.bindObject(Lorg/springframework/boot/context/properties/source/ConfigurationPropertyName;Lorg/springframework/boot/context/properties/bind/Bindable;Lorg/springframework/boot/context/properties/bind/BindHandler;Lorg/springframework/boot/context/properties/bind/Binder$Context;Z)Ljava/lang/Object; (117 bytes) @ 0x00007f7409c6e4dc [0x00007f7409c6d820+0x0000000000000cbc]
+J 5646 c1 org.springframework.boot.context.properties.bind.Binder.bind(Lorg/springframework/boot/context/properties/source/ConfigurationPropertyName;Lorg/springframework/boot/context/properties/bind/Bindable;Lorg/springframework/boot/context/properties/bind/BindHandler;Lorg/springframework/boot/context/properties/bind/Binder$Context;ZZ)Ljava/lang/Object; (74 bytes) @ 0x00007f7409a71d34 [0x00007f7409a71c00+0x0000000000000134]
+J 10129 c1 org.springframework.boot.context.properties.bind.JavaBeanBinder.bind(Lorg/springframework/boot/context/properties/bind/JavaBeanBinder$BeanSupplier;Lorg/springframework/boot/context/properties/bind/DataObjectPropertyBinder;Lorg/springframework/boot/context/properties/bind/JavaBeanBinder$BeanProperty;)Z (126 bytes) @ 0x00007f740a552844 [0x00007f740a5522a0+0x00000000000005a4]
+j  org.springframework.boot.context.properties.bind.JavaBeanBinder.bind(Lorg/springframework/boot/context/properties/bind/DataObjectPropertyBinder;Lorg/springframework/boot/context/properties/bind/JavaBeanBinder$Bean;Lorg/springframework/boot/context/properties/bind/JavaBeanBinder$BeanSupplier;Lorg/springframework/boot/context/properties/bind/Binder$Context;)Z+48
+j  org.springframework.boot.context.properties.bind.JavaBeanBinder.bind(Lorg/springframework/boot/context/properties/source/ConfigurationPropertyName;Lorg/springframework/boot/context/properties/bind/Bindable;Lorg/springframework/boot/context/properties/bind/Binder$Context;Lorg/springframework/boot/context/properties/bind/DataObjectPropertyBinder;)Ljava/lang/Object;+54
+j  org.springframework.boot.context.properties.bind.Binder.lambda$bindDataObject$5(Lorg/springframework/boot/context/properties/source/ConfigurationPropertyName;Lorg/springframework/boot/context/properties/bind/Bindable;Lorg/springframework/boot/context/properties/bind/Binder$Context;Lorg/springframework/boot/context/properties/bind/DataObjectPropertyBinder;)Ljava/lang/Object;+40
+j  org.springframework.boot.context.properties.bind.Binder$$Lambda$115.get()Ljava/lang/Object;+20
+j  org.springframework.boot.context.properties.bind.Binder$Context.withIncreasedDepth(Ljava/util/function/Supplier;)Ljava/lang/Object;+5
+j  org.springframework.boot.context.properties.bind.Binder$Context.withDataObject(Ljava/lang/Class;Ljava/util/function/Supplier;)Ljava/lang/Object;+12
+j  org.springframework.boot.context.properties.bind.Binder$Context.access$300(Lorg/springframework/boot/context/properties/bind/Binder$Context;Ljava/lang/Class;Ljava/util/function/Supplier;)Ljava/lang/Object;+3
+j  org.springframework.boot.context.properties.bind.Binder.bindDataObject(Lorg/springframework/boot/context/properties/source/ConfigurationPropertyName;Lorg/springframework/boot/context/properties/bind/Bindable;Lorg/springframework/boot/context/properties/bind/BindHandler;Lorg/springframework/boot/context/properties/bind/Binder$Context;Z)Ljava/lang/Object;+69
+J 6285 c1 org.springframework.boot.context.properties.bind.Binder.bindObject(Lorg/springframework/boot/context/properties/source/ConfigurationPropertyName;Lorg/springframework/boot/context/properties/bind/Bindable;Lorg/springframework/boot/context/properties/bind/BindHandler;Lorg/springframework/boot/context/properties/bind/Binder$Context;Z)Ljava/lang/Object; (117 bytes) @ 0x00007f7409c6e614 [0x00007f7409c6d820+0x0000000000000df4]
+J 5646 c1 org.springframework.boot.context.properties.bind.Binder.bind(Lorg/springframework/boot/context/properties/source/ConfigurationPropertyName;Lorg/springframework/boot/context/properties/bind/Bindable;Lorg/springframework/boot/context/properties/bind/BindHandler;Lorg/springframework/boot/context/properties/bind/Binder$Context;ZZ)Ljava/lang/Object; (74 bytes) @ 0x00007f7409a71d34 [0x00007f7409a71c00+0x0000000000000134]
+J 10129 c1 org.springframework.boot.context.properties.bind.JavaBeanBinder.bind(Lorg/springframework/boot/context/properties/bind/JavaBeanBinder$BeanSupplier;Lorg/springframework/boot/context/properties/bind/DataObjectPropertyBinder;Lorg/springframework/boot/context/properties/bind/JavaBeanBinder$BeanProperty;)Z (126 bytes) @ 0x00007f740a552844 [0x00007f740a5522a0+0x00000000000005a4]
+j  org.springframework.boot.context.properties.bind.JavaBeanBinder.bind(Lorg/springframework/boot/context/properties/bind/DataObjectPropertyBinder;Lorg/springframework/boot/context/properties/bind/JavaBeanBinder$Bean;Lorg/springframework/boot/context/properties/bind/JavaBeanBinder$BeanSupplier;Lorg/springframework/boot/context/properties/bind/Binder$Context;)Z+48
+j  org.springframework.boot.context.properties.bind.JavaBeanBinder.bind(Lorg/springframework/boot/context/properties/source/ConfigurationPropertyName;Lorg/springframework/boot/context/properties/bind/Bindable;Lorg/springframework/boot/context/properties/bind/Binder$Context;Lorg/springframework/boot/context/properties/bind/DataObjectPropertyBinder;)Ljava/lang/Object;+54
+j  org.springframework.boot.context.properties.bind.Binder.lambda$bindDataObject$5(Lorg/springframework/boot/context/properties/source/ConfigurationPropertyName;Lorg/springframework/boot/context/properties/bind/Bindable;Lorg/springframework/boot/context/properties/bind/Binder$Context;Lorg/springframework/boot/context/properties/bind/DataObjectPropertyBinder;)Ljava/lang/Object;+40
+j  org.springframework.boot.context.properties.bind.Binder$$Lambda$115.get()Ljava/lang/Object;+20
+j  org.springframework.boot.context.properties.bind.Binder$Context.withIncreasedDepth(Ljava/util/function/Supplier;)Ljava/lang/Object;+5
+j  org.springframework.boot.context.properties.bind.Binder$Context.withDataObject(Ljava/lang/Class;Ljava/util/function/Supplier;)Ljava/lang/Object;+12
+j  org.springframework.boot.context.properties.bind.Binder$Context.access$300(Lorg/springframework/boot/context/properties/bind/Binder$Context;Ljava/lang/Class;Ljava/util/function/Supplier;)Ljava/lang/Object;+3
+j  org.springframework.boot.context.properties.bind.Binder.bindDataObject(Lorg/springframework/boot/context/properties/source/ConfigurationPropertyName;Lorg/springframework/boot/context/properties/bind/Bindable;Lorg/springframework/boot/context/properties/bind/BindHandler;Lorg/springframework/boot/context/properties/bind/Binder$Context;Z)Ljava/lang/Object;+69
+J 6285 c1 org.springframework.boot.context.properties.bind.Binder.bindObject(Lorg/springframework/boot/context/properties/source/ConfigurationPropertyName;Lorg/springframework/boot/context/properties/bind/Bindable;Lorg/springframework/boot/context/properties/bind/BindHandler;Lorg/springframework/boot/context/properties/bind/Binder$Context;Z)Ljava/lang/Object; (117 bytes) @ 0x00007f7409c6e614 [0x00007f7409c6d820+0x0000000000000df4]
+J 5646 c1 org.springframework.boot.context.properties.bind.Binder.bind(Lorg/springframework/boot/context/properties/source/ConfigurationPropertyName;Lorg/springframework/boot/context/properties/bind/Bindable;Lorg/springframework/boot/context/properties/bind/BindHandler;Lorg/springframework/boot/context/properties/bind/Binder$Context;ZZ)Ljava/lang/Object; (74 bytes) @ 0x00007f7409a71d34 [0x00007f7409a71c00+0x0000000000000134]
+J 10129 c1 org.springframework.boot.context.properties.bind.JavaBeanBinder.bind(Lorg/springframework/boot/context/properties/bind/JavaBeanBinder$BeanSupplier;Lorg/springframework/boot/context/properties/bind/DataObjectPropertyBinder;Lorg/springframework/boot/context/properties/bind/JavaBeanBinder$BeanProperty;)Z (126 bytes) @ 0x00007f740a552844 [0x00007f740a5522a0+0x00000000000005a4]
+j  org.springframework.boot.context.properties.bind.JavaBeanBinder.bind(Lorg/springframework/boot/context/properties/bind/DataObjectPropertyBinder;Lorg/springframework/boot/context/properties/bind/JavaBeanBinder$Bean;Lorg/springframework/boot/context/properties/bind/JavaBeanBinder$BeanSupplier;Lorg/springframework/boot/context/properties/bind/Binder$Context;)Z+48
+j  org.springframework.boot.context.properties.bind.JavaBeanBinder.bind(Lorg/springframework/boot/context/properties/source/ConfigurationPropertyName;Lorg/springframework/boot/context/properties/bind/Bindable;Lorg/springframework/boot/context/properties/bind/Binder$Context;Lorg/springframework/boot/context/properties/bind/DataObjectPropertyBinder;)Ljava/lang/Object;+54
+j  org.springframework.boot.context.properties.bind.Binder.lambda$bindDataObject$5(Lorg/springframework/boot/context/properties/source/ConfigurationPropertyName;Lorg/springframework/boot/context/properties/bind/Bindable;Lorg/springframework/boot/context/properties/bind/Binder$Context;Lorg/springframework/boot/context/properties/bind/DataObjectPropertyBinder;)Ljava/lang/Object;+40
+j  org.springframework.boot.context.properties.bind.Binder$$Lambda$115.get()Ljava/lang/Object;+20
+j  org.springframework.boot.context.properties.bind.Binder$Context.withIncreasedDepth(Ljava/util/function/Supplier;)Ljava/lang/Object;+5
+j  org.springframework.boot.context.properties.bind.Binder$Context.withDataObject(Ljava/lang/Class;Ljava/util/function/Supplier;)Ljava/lang/Object;+12
+j  org.springframework.boot.context.properties.bind.Binder$Context.access$300(Lorg/springframework/boot/context/properties/bind/Binder$Context;Ljava/lang/Class;Ljava/util/function/Supplier;)Ljava/lang/Object;+3
+j  org.springframework.boot.context.properties.bind.Binder.bindDataObject(Lorg/springframework/boot/context/properties/source/ConfigurationPropertyName;Lorg/springframework/boot/context/properties/bind/Bindable;Lorg/springframework/boot/context/properties/bind/BindHandler;Lorg/springframework/boot/context/properties/bind/Binder$Context;Z)Ljava/lang/Object;+69
+J 6285 c1 org.springframework.boot.context.properties.bind.Binder.bindObject(Lorg/springframework/boot/context/properties/source/ConfigurationPropertyName;Lorg/springframework/boot/context/properties/bind/Bindable;Lorg/springframework/boot/context/properties/bind/BindHandler;Lorg/springframework/boot/context/properties/bind/Binder$Context;Z)Ljava/lang/Object; (117 bytes) @ 0x00007f7409c6e614 [0x00007f7409c6d820+0x0000000000000df4]
+J 5646 c1 org.springframework.boot.context.properties.bind.Binder.bind(Lorg/springframework/boot/context/properties/source/ConfigurationPropertyName;Lorg/springframework/boot/context/properties/bind/Bindable;Lorg/springframework/boot/context/properties/bind/BindHandler;Lorg/springframework/boot/context/properties/bind/Binder$Context;ZZ)Ljava/lang/Object; (74 bytes) @ 0x00007f7409a71d34 [0x00007f7409a71c00+0x0000000000000134]
+j  org.springframework.boot.context.properties.bind.Binder.bind(Lorg/springframework/boot/context/properties/source/ConfigurationPropertyName;Lorg/springframework/boot/context/properties/bind/Bindable;Lorg/springframework/boot/context/properties/bind/BindHandler;Z)Ljava/lang/Object;+44
+j  org.springframework.boot.context.properties.bind.Binder.bind(Lorg/springframework/boot/context/properties/source/ConfigurationPropertyName;Lorg/springframework/boot/context/properties/bind/Bindable;Lorg/springframework/boot/context/properties/bind/BindHandler;)Lorg/springframework/boot/context/properties/bind/BindResult;+5
+j  org.springframework.boot.context.properties.bind.Binder.bind(Ljava/lang/String;Lorg/springframework/boot/context/properties/bind/Bindable;Lorg/springframework/boot/context/properties/bind/BindHandler;)Lorg/springframework/boot/context/properties/bind/BindResult;+7
+j  org.springframework.boot.context.properties.ConfigurationPropertiesBinder.bind(Lorg/springframework/boot/context/properties/ConfigurationPropertiesBean;)Lorg/springframework/boot/context/properties/bind/BindResult;+31
+j  org.springframework.boot.context.properties.ConfigurationPropertiesBindingPostProcessor.bind(Lorg/springframework/boot/context/properties/ConfigurationPropertiesBean;)V+66
+J 9953 c1 org.springframework.boot.context.properties.ConfigurationPropertiesBindingPostProcessor.postProcessBeforeInitialization(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object; (15 bytes) @ 0x00007f740a4eeb84 [0x00007f740a4ee980+0x0000000000000204]
+J 6255 c1 org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object; (61 bytes) @ 0x00007f7409c64c44 [0x00007f7409c64b00+0x0000000000000144]
+J 9687 c1 org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(Ljava/lang/String;Ljava/lang/Object;Lorg/springframework/beans/factory/support/RootBeanDefinition;)Ljava/lang/Object; (116 bytes) @ 0x00007f740a432bd4 [0x00007f740a432a60+0x0000000000000174]
+J 6338 c1 org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(Ljava/lang/String;Lorg/springframework/beans/factory/support/RootBeanDefinition;[Ljava/lang/Object;)Ljava/lang/Object; (507 bytes) @ 0x00007f7409c9b4c4 [0x00007f7409c99a00+0x0000000000001ac4]
+J 6337 c1 org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(Ljava/lang/String;Lorg/springframework/beans/factory/support/RootBeanDefinition;[Ljava/lang/Object;)Ljava/lang/Object; (247 bytes) @ 0x00007f7409c96484 [0x00007f7409c94ae0+0x00000000000019a4]
+J 9911 c1 org.springframework.beans.factory.support.AbstractBeanFactory$$Lambda$261.getObject()Ljava/lang/Object; (20 bytes) @ 0x00007f740a4dc4ac [0x00007f740a4dc3e0+0x00000000000000cc]
+J 6364 c1 org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(Ljava/lang/String;Lorg/springframework/beans/factory/ObjectFactory;)Ljava/lang/Object; (297 bytes) @ 0x00007f7409caccbc [0x00007f7409cabd40+0x0000000000000f7c]
+J 2883 c1 org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(Ljava/lang/String;Ljava/lang/Class;[Ljava/lang/Object;Z)Ljava/lang/Object; (832 bytes) @ 0x00007f74093e500c [0x00007f74093e30e0+0x0000000000001f2c]
+J 6302 c1 org.springframework.beans.factory.support.AbstractBeanFactory.getBean(Ljava/lang/String;)Ljava/lang/Object; (9 bytes) @ 0x00007f7409c7dd6c [0x00007f7409c7dcc0+0x00000000000000ac]
+J 10198 c1 org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(Ljava/lang/String;Ljava/lang/Class;Lorg/springframework/beans/factory/BeanFactory;)Ljava/lang/Object; (8 bytes) @ 0x00007f740a5867dc [0x00007f740a586740+0x000000000000009c]
+J 9698 c1 org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(Lorg/springframework/beans/factory/config/DependencyDescriptor;Ljava/lang/String;Ljava/util/Set;Lorg/springframework/beans/TypeConverter;)Ljava/lang/Object; (530 bytes) @ 0x00007f740a43a9f4 [0x00007f740a439580+0x0000000000001474]
+j  org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(Lorg/springframework/beans/factory/config/DependencyDescriptor;Ljava/lang/String;Ljava/util/Set;Lorg/springframework/beans/TypeConverter;)Ljava/lang/Object;+108
+J 9935 c1 org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(Lorg/springframework/core/MethodParameter;Ljava/lang/String;Ljava/util/Set;Lorg/springframework/beans/TypeConverter;Z)Ljava/lang/Object; (146 bytes) @ 0x00007f740a4e462c [0x00007f740a4e4280+0x00000000000003ac]
+J 10556 c1 org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(Ljava/lang/String;Lorg/springframework/beans/factory/support/RootBeanDefinition;Lorg/springframework/beans/factory/config/ConstructorArgumentValues;Lorg/springframework/beans/BeanWrapper;[Ljava/lang/Class;[Ljava/lang/String;Ljava/lang/reflect/Executable;ZZ)Lorg/springframework/beans/factory/support/ConstructorResolver$ArgumentsHolder; (636 bytes) @ 0x00007f740a639b1c [0x00007f740a638be0+0x0000000000000f3c]
+j  org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(Ljava/lang/String;Lorg/springframework/beans/factory/support/RootBeanDefinition;[Ljava/lang/reflect/Constructor;[Ljava/lang/Object;)Lorg/springframework/beans/BeanWrapper;+545
+J 9556 c1 org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(Ljava/lang/String;Lorg/springframework/beans/factory/support/RootBeanDefinition;[Ljava/lang/Object;)Lorg/springframework/beans/BeanWrapper; (254 bytes) @ 0x00007f740a3c0dfc [0x00007f740a3bf360+0x0000000000001a9c]
+J 6338 c1 org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(Ljava/lang/String;Lorg/springframework/beans/factory/support/RootBeanDefinition;[Ljava/lang/Object;)Ljava/lang/Object; (507 bytes) @ 0x00007f7409c99fac [0x00007f7409c99a00+0x00000000000005ac]
+J 6337 c1 org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(Ljava/lang/String;Lorg/springframework/beans/factory/support/RootBeanDefinition;[Ljava/lang/Object;)Ljava/lang/Object; (247 bytes) @ 0x00007f7409c96484 [0x00007f7409c94ae0+0x00000000000019a4]
+J 9911 c1 org.springframework.beans.factory.support.AbstractBeanFactory$$Lambda$261.getObject()Ljava/lang/Object; (20 bytes) @ 0x00007f740a4dc4ac [0x00007f740a4dc3e0+0x00000000000000cc]
+J 6364 c1 org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(Ljava/lang/String;Lorg/springframework/beans/factory/ObjectFactory;)Ljava/lang/Object; (297 bytes) @ 0x00007f7409caccbc [0x00007f7409cabd40+0x0000000000000f7c]
+J 2883 c1 org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(Ljava/lang/String;Ljava/lang/Class;[Ljava/lang/Object;Z)Ljava/lang/Object; (832 bytes) @ 0x00007f74093e500c [0x00007f74093e30e0+0x0000000000001f2c]
+J 6302 c1 org.springframework.beans.factory.support.AbstractBeanFactory.getBean(Ljava/lang/String;)Ljava/lang/Object; (9 bytes) @ 0x00007f7409c7dd6c [0x00007f7409c7dcc0+0x00000000000000ac]
+j  org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons()V+248
+j  org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(Lorg/springframework/beans/factory/config/ConfigurableListableBeanFactory;)V+124
+j  org.springframework.context.support.AbstractApplicationContext.refresh()V+86
+j  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh()V+1
+j  org.springframework.boot.SpringApplication.refresh(Lorg/springframework/context/ConfigurableApplicationContext;)V+1
+j  org.springframework.boot.SpringApplication.refreshContext(Lorg/springframework/context/ConfigurableApplicationContext;)V+16
+j  org.springframework.boot.SpringApplication.run([Ljava/lang/String;)Lorg/springframework/context/ConfigurableApplicationContext;+111
+j  org.springframework.boot.SpringApplication.run([Ljava/lang/Class;[Ljava/lang/String;)Lorg/springframework/context/ConfigurableApplicationContext;+9
+j  org.springframework.boot.SpringApplication.run(Ljava/lang/Class;[Ljava/lang/String;)Lorg/springframework/context/ConfigurableApplicationContext;+9
+j  oj7.api.accesscontrol.AccesscontrolApplication.main([Ljava/lang/String;)V+3
+v  ~StubRoutines::call_stub
+V  [libjvm.so+0x869cc4]
+...<more frames>...
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+J 760  java.lang.ClassLoader.findBootstrapClass(Ljava/lang/String;)Ljava/lang/Class; java.base@11.0.15 (0 bytes) @ 0x00007f7410324e1c [0x00007f7410324dc0+0x000000000000005c]
+J 759 c1 java.lang.ClassLoader.findBootstrapClassOrNull(Ljava/lang/String;)Ljava/lang/Class; java.base@11.0.15 (16 bytes) @ 0x00007f7408f3e40c [0x00007f7408f3e2e0+0x000000000000012c]
+J 2822 c2 jdk.internal.loader.BuiltinClassLoader.loadClassOrNull(Ljava/lang/String;Z)Ljava/lang/Class; java.base@11.0.15 (143 bytes) @ 0x00007f741047649c [0x00007f7410475a40+0x0000000000000a5c]
+J 4482 c2 jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class; java.base@11.0.15 (40 bytes) @ 0x00007f741060f628 [0x00007f741060f5c0+0x0000000000000068]
+J 4354 c2 java.lang.ClassLoader.loadClass(Ljava/lang/String;)Ljava/lang/Class; java.base@11.0.15 (7 bytes) @ 0x00007f74105e3bf4 [0x00007f74105e3ba0+0x0000000000000054]
+j  org.springframework.beans.BeanUtils.findEditorByConvention(Ljava/lang/Class;)Ljava/beans/PropertyEditor;+115
+j  org.springframework.boot.context.properties.bind.BindConverter$TypeConverterConverter.getPropertyEditor(Ljava/lang/Class;)Ljava/beans/PropertyEditor;+63
+j  org.springframework.boot.context.properties.bind.BindConverter$TypeConverterConverter.matches(Lorg/springframework/core/convert/TypeDescriptor;Lorg/springframework/core/convert/TypeDescriptor;)Z+5
+j  org.springframework.core.convert.support.GenericConversionService$ConvertersForPair.getConverter(Lorg/springframework/core/convert/TypeDescriptor;Lorg/springframework/core/convert/TypeDescriptor;)Lorg/springframework/core/convert/converter/GenericConverter;+45
+J 3819 c1 org.springframework.core.convert.support.GenericConversionService$Converters.getRegisteredConverter(Lorg/springframework/core/convert/TypeDescriptor;Lorg/springframework/core/convert/TypeDescriptor;Lorg/springframework/core/convert/converter/GenericConverter$ConvertiblePair;)Lorg/springframework/core/convert/converter/GenericConverter; (93 bytes) @ 0x00007f74096ba5ac [0x00007f74096ba2e0+0x00000000000002cc]
+j  org.springframework.core.convert.support.GenericConversionService$Converters.find(Lorg/springframework/core/convert/TypeDescriptor;Lorg/springframework/core/convert/TypeDescriptor;)Lorg/springframework/core/convert/converter/GenericConverter;+98
+J 5271 c1 org.springframework.core.convert.support.GenericConversionService.getConverter(Lorg/springframework/core/convert/TypeDescriptor;Lorg/springframework/core/convert/TypeDescriptor;)Lorg/springframework/core/convert/converter/GenericConverter; (106 bytes) @ 0x00007f74099c2ed4 [0x00007f74099c2a60+0x0000000000000474]
+J 6921 c1 org.springframework.core.convert.support.GenericConversionService.canConvert(Lorg/springframework/core/convert/TypeDescriptor;Lorg/springframework/core/convert/TypeDescriptor;)Z (29 bytes) @ 0x00007f7409de1f6c [0x00007f7409de1d80+0x00000000000001ec]
+j  org.springframework.boot.context.properties.bind.BindConverter$TypeConverterConversionService.canConvert(Lorg/springframework/core/convert/TypeDescriptor;Lorg/springframework/core/convert/TypeDescriptor;)Z+22
+j  org.springframework.boot.context.properties.bind.BindConverter.convert(Ljava/lang/Object;Lorg/springframework/core/convert/TypeDescriptor;Lorg/springframework/core/convert/TypeDescriptor;)Ljava/lang/Object;+40
+J 3979 c1 org.springframework.boot.context.properties.bind.BindConverter.convert(Ljava/lang/Object;Lorg/springframework/boot/context/properties/bind/Bindable;)Ljava/lang/Object; (14 bytes) @ 0x00007f7409710e8c [0x00007f7409710b20+0x000000000000036c]
+j  org.springframework.boot.context.properties.bind.Binder.bindProperty(Lorg/springframework/boot/context/properties/bind/Bindable;Lorg/springframework/boot/context/properties/bind/Binder$Context;Lorg/springframework/boot/context/properties/source/ConfigurationProperty;)Ljava/lang/Object;+31
+J 6285 c1 org.springframework.boot.context.properties.bind.Binder.bindObject(Lorg/springframework/boot/context/properties/source/ConfigurationPropertyName;Lorg/springframework/boot/context/properties/bind/Bindable;Lorg/springframework/boot/context/properties/bind/BindHandler;Lorg/springframework/boot/context/properties/bind/Binder$Context;Z)Ljava/lang/Object; (117 bytes) @ 0x00007f7409c6e4dc [0x00007f7409c6d820+0x0000000000000cbc]
+J 5646 c1 org.springframework.boot.context.properties.bind.Binder.bind(Lorg/springframework/boot/context/properties/source/ConfigurationPropertyName;Lorg/springframework/boot/context/properties/bind/Bindable;Lorg/springframework/boot/context/properties/bind/BindHandler;Lorg/springframework/boot/context/properties/bind/Binder$Context;ZZ)Ljava/lang/Object; (74 bytes) @ 0x00007f7409a71d34 [0x00007f7409a71c00+0x0000000000000134]
+J 10129 c1 org.springframework.boot.context.properties.bind.JavaBeanBinder.bind(Lorg/springframework/boot/context/properties/bind/JavaBeanBinder$BeanSupplier;Lorg/springframework/boot/context/properties/bind/DataObjectPropertyBinder;Lorg/springframework/boot/context/properties/bind/JavaBeanBinder$BeanProperty;)Z (126 bytes) @ 0x00007f740a552844 [0x00007f740a5522a0+0x00000000000005a4]
+j  org.springframework.boot.context.properties.bind.JavaBeanBinder.bind(Lorg/springframework/boot/context/properties/bind/DataObjectPropertyBinder;Lorg/springframework/boot/context/properties/bind/JavaBeanBinder$Bean;Lorg/springframework/boot/context/properties/bind/JavaBeanBinder$BeanSupplier;Lorg/springframework/boot/context/properties/bind/Binder$Context;)Z+48
+j  org.springframework.boot.context.properties.bind.JavaBeanBinder.bind(Lorg/springframework/boot/context/properties/source/ConfigurationPropertyName;Lorg/springframework/boot/context/properties/bind/Bindable;Lorg/springframework/boot/context/properties/bind/Binder$Context;Lorg/springframework/boot/context/properties/bind/DataObjectPropertyBinder;)Ljava/lang/Object;+54
+j  org.springframework.boot.context.properties.bind.Binder.lambda$bindDataObject$5(Lorg/springframework/boot/context/properties/source/ConfigurationPropertyName;Lorg/springframework/boot/context/properties/bind/Bindable;Lorg/springframework/boot/context/properties/bind/Binder$Context;Lorg/springframework/boot/context/properties/bind/DataObjectPropertyBinder;)Ljava/lang/Object;+40
+j  org.springframework.boot.context.properties.bind.Binder$$Lambda$115.get()Ljava/lang/Object;+20
+j  org.springframework.boot.context.properties.bind.Binder$Context.withIncreasedDepth(Ljava/util/function/Supplier;)Ljava/lang/Object;+5
+j  org.springframework.boot.context.properties.bind.Binder$Context.withDataObject(Ljava/lang/Class;Ljava/util/function/Supplier;)Ljava/lang/Object;+12
+j  org.springframework.boot.context.properties.bind.Binder$Context.access$300(Lorg/springframework/boot/context/properties/bind/Binder$Context;Ljava/lang/Class;Ljava/util/function/Supplier;)Ljava/lang/Object;+3
+j  org.springframework.boot.context.properties.bind.Binder.bindDataObject(Lorg/springframework/boot/context/properties/source/ConfigurationPropertyName;Lorg/springframework/boot/context/properties/bind/Bindable;Lorg/springframework/boot/context/properties/bind/BindHandler;Lorg/springframework/boot/context/properties/bind/Binder$Context;Z)Ljava/lang/Object;+69
+J 6285 c1 org.springframework.boot.context.properties.bind.Binder.bindObject(Lorg/springframework/boot/context/properties/source/ConfigurationPropertyName;Lorg/springframework/boot/context/properties/bind/Bindable;Lorg/springframework/boot/context/properties/bind/BindHandler;Lorg/springframework/boot/context/properties/bind/Binder$Context;Z)Ljava/lang/Object; (117 bytes) @ 0x00007f7409c6e614 [0x00007f7409c6d820+0x0000000000000df4]
+J 5646 c1 org.springframework.boot.context.properties.bind.Binder.bind(Lorg/springframework/boot/context/properties/source/ConfigurationPropertyName;Lorg/springframework/boot/context/properties/bind/Bindable;Lorg/springframework/boot/context/properties/bind/BindHandler;Lorg/springframework/boot/context/properties/bind/Binder$Context;ZZ)Ljava/lang/Object; (74 bytes) @ 0x00007f7409a71d34 [0x00007f7409a71c00+0x0000000000000134]
+J 10129 c1 org.springframework.boot.context.properties.bind.JavaBeanBinder.bind(Lorg/springframework/boot/context/properties/bind/JavaBeanBinder$BeanSupplier;Lorg/springframework/boot/context/properties/bind/DataObjectPropertyBinder;Lorg/springframework/boot/context/properties/bind/JavaBeanBinder$BeanProperty;)Z (126 bytes) @ 0x00007f740a552844 [0x00007f740a5522a0+0x00000000000005a4]
+j  org.springframework.boot.context.properties.bind.JavaBeanBinder.bind(Lorg/springframework/boot/context/properties/bind/DataObjectPropertyBinder;Lorg/springframework/boot/context/properties/bind/JavaBeanBinder$Bean;Lorg/springframework/boot/context/properties/bind/JavaBeanBinder$BeanSupplier;Lorg/springframework/boot/context/properties/bind/Binder$Context;)Z+48
+j  org.springframework.boot.context.properties.bind.JavaBeanBinder.bind(Lorg/springframework/boot/context/properties/source/ConfigurationPropertyName;Lorg/springframework/boot/context/properties/bind/Bindable;Lorg/springframework/boot/context/properties/bind/Binder$Context;Lorg/springframework/boot/context/properties/bind/DataObjectPropertyBinder;)Ljava/lang/Object;+54
+j  org.springframework.boot.context.properties.bind.Binder.lambda$bindDataObject$5(Lorg/springframework/boot/context/properties/source/ConfigurationPropertyName;Lorg/springframework/boot/context/properties/bind/Bindable;Lorg/springframework/boot/context/properties/bind/Binder$Context;Lorg/springframework/boot/context/properties/bind/DataObjectPropertyBinder;)Ljava/lang/Object;+40
+j  org.springframework.boot.context.properties.bind.Binder$$Lambda$115.get()Ljava/lang/Object;+20
+j  org.springframework.boot.context.properties.bind.Binder$Context.withIncreasedDepth(Ljava/util/function/Supplier;)Ljava/lang/Object;+5
+j  org.springframework.boot.context.properties.bind.Binder$Context.withDataObject(Ljava/lang/Class;Ljava/util/function/Supplier;)Ljava/lang/Object;+12
+j  org.springframework.boot.context.properties.bind.Binder$Context.access$300(Lorg/springframework/boot/context/properties/bind/Binder$Context;Ljava/lang/Class;Ljava/util/function/Supplier;)Ljava/lang/Object;+3
+j  org.springframework.boot.context.properties.bind.Binder.bindDataObject(Lorg/springframework/boot/context/properties/source/ConfigurationPropertyName;Lorg/springframework/boot/context/properties/bind/Bindable;Lorg/springframework/boot/context/properties/bind/BindHandler;Lorg/springframework/boot/context/properties/bind/Binder$Context;Z)Ljava/lang/Object;+69
+J 6285 c1 org.springframework.boot.context.properties.bind.Binder.bindObject(Lorg/springframework/boot/context/properties/source/ConfigurationPropertyName;Lorg/springframework/boot/context/properties/bind/Bindable;Lorg/springframework/boot/context/properties/bind/BindHandler;Lorg/springframework/boot/context/properties/bind/Binder$Context;Z)Ljava/lang/Object; (117 bytes) @ 0x00007f7409c6e614 [0x00007f7409c6d820+0x0000000000000df4]
+J 5646 c1 org.springframework.boot.context.properties.bind.Binder.bind(Lorg/springframework/boot/context/properties/source/ConfigurationPropertyName;Lorg/springframework/boot/context/properties/bind/Bindable;Lorg/springframework/boot/context/properties/bind/BindHandler;Lorg/springframework/boot/context/properties/bind/Binder$Context;ZZ)Ljava/lang/Object; (74 bytes) @ 0x00007f7409a71d34 [0x00007f7409a71c00+0x0000000000000134]
+J 10129 c1 org.springframework.boot.context.properties.bind.JavaBeanBinder.bind(Lorg/springframework/boot/context/properties/bind/JavaBeanBinder$BeanSupplier;Lorg/springframework/boot/context/properties/bind/DataObjectPropertyBinder;Lorg/springframework/boot/context/properties/bind/JavaBeanBinder$BeanProperty;)Z (126 bytes) @ 0x00007f740a552844 [0x00007f740a5522a0+0x00000000000005a4]
+j  org.springframework.boot.context.properties.bind.JavaBeanBinder.bind(Lorg/springframework/boot/context/properties/bind/DataObjectPropertyBinder;Lorg/springframework/boot/context/properties/bind/JavaBeanBinder$Bean;Lorg/springframework/boot/context/properties/bind/JavaBeanBinder$BeanSupplier;Lorg/springframework/boot/context/properties/bind/Binder$Context;)Z+48
+j  org.springframework.boot.context.properties.bind.JavaBeanBinder.bind(Lorg/springframework/boot/context/properties/source/ConfigurationPropertyName;Lorg/springframework/boot/context/properties/bind/Bindable;Lorg/springframework/boot/context/properties/bind/Binder$Context;Lorg/springframework/boot/context/properties/bind/DataObjectPropertyBinder;)Ljava/lang/Object;+54
+j  org.springframework.boot.context.properties.bind.Binder.lambda$bindDataObject$5(Lorg/springframework/boot/context/properties/source/ConfigurationPropertyName;Lorg/springframework/boot/context/properties/bind/Bindable;Lorg/springframework/boot/context/properties/bind/Binder$Context;Lorg/springframework/boot/context/properties/bind/DataObjectPropertyBinder;)Ljava/lang/Object;+40
+j  org.springframework.boot.context.properties.bind.Binder$$Lambda$115.get()Ljava/lang/Object;+20
+j  org.springframework.boot.context.properties.bind.Binder$Context.withIncreasedDepth(Ljava/util/function/Supplier;)Ljava/lang/Object;+5
+j  org.springframework.boot.context.properties.bind.Binder$Context.withDataObject(Ljava/lang/Class;Ljava/util/function/Supplier;)Ljava/lang/Object;+12
+j  org.springframework.boot.context.properties.bind.Binder$Context.access$300(Lorg/springframework/boot/context/properties/bind/Binder$Context;Ljava/lang/Class;Ljava/util/function/Supplier;)Ljava/lang/Object;+3
+j  org.springframework.boot.context.properties.bind.Binder.bindDataObject(Lorg/springframework/boot/context/properties/source/ConfigurationPropertyName;Lorg/springframework/boot/context/properties/bind/Bindable;Lorg/springframework/boot/context/properties/bind/BindHandler;Lorg/springframework/boot/context/properties/bind/Binder$Context;Z)Ljava/lang/Object;+69
+J 6285 c1 org.springframework.boot.context.properties.bind.Binder.bindObject(Lorg/springframework/boot/context/properties/source/ConfigurationPropertyName;Lorg/springframework/boot/context/properties/bind/Bindable;Lorg/springframework/boot/context/properties/bind/BindHandler;Lorg/springframework/boot/context/properties/bind/Binder$Context;Z)Ljava/lang/Object; (117 bytes) @ 0x00007f7409c6e614 [0x00007f7409c6d820+0x0000000000000df4]
+J 5646 c1 org.springframework.boot.context.properties.bind.Binder.bind(Lorg/springframework/boot/context/properties/source/ConfigurationPropertyName;Lorg/springframework/boot/context/properties/bind/Bindable;Lorg/springframework/boot/context/properties/bind/BindHandler;Lorg/springframework/boot/context/properties/bind/Binder$Context;ZZ)Ljava/lang/Object; (74 bytes) @ 0x00007f7409a71d34 [0x00007f7409a71c00+0x0000000000000134]
+j  org.springframework.boot.context.properties.bind.Binder.bind(Lorg/springframework/boot/context/properties/source/ConfigurationPropertyName;Lorg/springframework/boot/context/properties/bind/Bindable;Lorg/springframework/boot/context/properties/bind/BindHandler;Z)Ljava/lang/Object;+44
+j  org.springframework.boot.context.properties.bind.Binder.bind(Lorg/springframework/boot/context/properties/source/ConfigurationPropertyName;Lorg/springframework/boot/context/properties/bind/Bindable;Lorg/springframework/boot/context/properties/bind/BindHandler;)Lorg/springframework/boot/context/properties/bind/BindResult;+5
+j  org.springframework.boot.context.properties.bind.Binder.bind(Ljava/lang/String;Lorg/springframework/boot/context/properties/bind/Bindable;Lorg/springframework/boot/context/properties/bind/BindHandler;)Lorg/springframework/boot/context/properties/bind/BindResult;+7
+j  org.springframework.boot.context.properties.ConfigurationPropertiesBinder.bind(Lorg/springframework/boot/context/properties/ConfigurationPropertiesBean;)Lorg/springframework/boot/context/properties/bind/BindResult;+31
+j  org.springframework.boot.context.properties.ConfigurationPropertiesBindingPostProcessor.bind(Lorg/springframework/boot/context/properties/ConfigurationPropertiesBean;)V+66
+J 9953 c1 org.springframework.boot.context.properties.ConfigurationPropertiesBindingPostProcessor.postProcessBeforeInitialization(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object; (15 bytes) @ 0x00007f740a4eeb84 [0x00007f740a4ee980+0x0000000000000204]
+J 6255 c1 org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object; (61 bytes) @ 0x00007f7409c64c44 [0x00007f7409c64b00+0x0000000000000144]
+J 9687 c1 org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(Ljava/lang/String;Ljava/lang/Object;Lorg/springframework/beans/factory/support/RootBeanDefinition;)Ljava/lang/Object; (116 bytes) @ 0x00007f740a432bd4 [0x00007f740a432a60+0x0000000000000174]
+J 6338 c1 org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(Ljava/lang/String;Lorg/springframework/beans/factory/support/RootBeanDefinition;[Ljava/lang/Object;)Ljava/lang/Object; (507 bytes) @ 0x00007f7409c9b4c4 [0x00007f7409c99a00+0x0000000000001ac4]
+J 6337 c1 org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(Ljava/lang/String;Lorg/springframework/beans/factory/support/RootBeanDefinition;[Ljava/lang/Object;)Ljava/lang/Object; (247 bytes) @ 0x00007f7409c96484 [0x00007f7409c94ae0+0x00000000000019a4]
+J 9911 c1 org.springframework.beans.factory.support.AbstractBeanFactory$$Lambda$261.getObject()Ljava/lang/Object; (20 bytes) @ 0x00007f740a4dc4ac [0x00007f740a4dc3e0+0x00000000000000cc]
+J 6364 c1 org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(Ljava/lang/String;Lorg/springframework/beans/factory/ObjectFactory;)Ljava/lang/Object; (297 bytes) @ 0x00007f7409caccbc [0x00007f7409cabd40+0x0000000000000f7c]
+J 2883 c1 org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(Ljava/lang/String;Ljava/lang/Class;[Ljava/lang/Object;Z)Ljava/lang/Object; (832 bytes) @ 0x00007f74093e500c [0x00007f74093e30e0+0x0000000000001f2c]
+J 6302 c1 org.springframework.beans.factory.support.AbstractBeanFactory.getBean(Ljava/lang/String;)Ljava/lang/Object; (9 bytes) @ 0x00007f7409c7dd6c [0x00007f7409c7dcc0+0x00000000000000ac]
+J 10198 c1 org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(Ljava/lang/String;Ljava/lang/Class;Lorg/springframework/beans/factory/BeanFactory;)Ljava/lang/Object; (8 bytes) @ 0x00007f740a5867dc [0x00007f740a586740+0x000000000000009c]
+J 9698 c1 org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(Lorg/springframework/beans/factory/config/DependencyDescriptor;Ljava/lang/String;Ljava/util/Set;Lorg/springframework/beans/TypeConverter;)Ljava/lang/Object; (530 bytes) @ 0x00007f740a43a9f4 [0x00007f740a439580+0x0000000000001474]
+j  org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(Lorg/springframework/beans/factory/config/DependencyDescriptor;Ljava/lang/String;Ljava/util/Set;Lorg/springframework/beans/TypeConverter;)Ljava/lang/Object;+108
+J 9935 c1 org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(Lorg/springframework/core/MethodParameter;Ljava/lang/String;Ljava/util/Set;Lorg/springframework/beans/TypeConverter;Z)Ljava/lang/Object; (146 bytes) @ 0x00007f740a4e462c [0x00007f740a4e4280+0x00000000000003ac]
+J 10556 c1 org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(Ljava/lang/String;Lorg/springframework/beans/factory/support/RootBeanDefinition;Lorg/springframework/beans/factory/config/ConstructorArgumentValues;Lorg/springframework/beans/BeanWrapper;[Ljava/lang/Class;[Ljava/lang/String;Ljava/lang/reflect/Executable;ZZ)Lorg/springframework/beans/factory/support/ConstructorResolver$ArgumentsHolder; (636 bytes) @ 0x00007f740a639b1c [0x00007f740a638be0+0x0000000000000f3c]
+j  org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(Ljava/lang/String;Lorg/springframework/beans/factory/support/RootBeanDefinition;[Ljava/lang/reflect/Constructor;[Ljava/lang/Object;)Lorg/springframework/beans/BeanWrapper;+545
+J 9556 c1 org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(Ljava/lang/String;Lorg/springframework/beans/factory/support/RootBeanDefinition;[Ljava/lang/Object;)Lorg/springframework/beans/BeanWrapper; (254 bytes) @ 0x00007f740a3c0dfc [0x00007f740a3bf360+0x0000000000001a9c]
+J 6338 c1 org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(Ljava/lang/String;Lorg/springframework/beans/factory/support/RootBeanDefinition;[Ljava/lang/Object;)Ljava/lang/Object; (507 bytes) @ 0x00007f7409c99fac [0x00007f7409c99a00+0x00000000000005ac]
+J 6337 c1 org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(Ljava/lang/String;Lorg/springframework/beans/factory/support/RootBeanDefinition;[Ljava/lang/Object;)Ljava/lang/Object; (247 bytes) @ 0x00007f7409c96484 [0x00007f7409c94ae0+0x00000000000019a4]
+J 9911 c1 org.springframework.beans.factory.support.AbstractBeanFactory$$Lambda$261.getObject()Ljava/lang/Object; (20 bytes) @ 0x00007f740a4dc4ac [0x00007f740a4dc3e0+0x00000000000000cc]
+J 6364 c1 org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(Ljava/lang/String;Lorg/springframework/beans/factory/ObjectFactory;)Ljava/lang/Object; (297 bytes) @ 0x00007f7409caccbc [0x00007f7409cabd40+0x0000000000000f7c]
+J 2883 c1 org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(Ljava/lang/String;Ljava/lang/Class;[Ljava/lang/Object;Z)Ljava/lang/Object; (832 bytes) @ 0x00007f74093e500c [0x00007f74093e30e0+0x0000000000001f2c]
+J 6302 c1 org.springframework.beans.factory.support.AbstractBeanFactory.getBean(Ljava/lang/String;)Ljava/lang/Object; (9 bytes) @ 0x00007f7409c7dd6c [0x00007f7409c7dcc0+0x00000000000000ac]
+j  org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons()V+248
+j  org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(Lorg/springframework/beans/factory/config/ConfigurableListableBeanFactory;)V+124
+j  org.springframework.context.support.AbstractApplicationContext.refresh()V+86
+j  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh()V+1
+j  org.springframework.boot.SpringApplication.refresh(Lorg/springframework/context/ConfigurableApplicationContext;)V+1
+j  org.springframework.boot.SpringApplication.refreshContext(Lorg/springframework/context/ConfigurableApplicationContext;)V+16
+j  org.springframework.boot.SpringApplication.run([Ljava/lang/String;)Lorg/springframework/context/ConfigurableApplicationContext;+111
+j  org.springframework.boot.SpringApplication.run([Ljava/lang/Class;[Ljava/lang/String;)Lorg/springframework/context/ConfigurableApplicationContext;+9
+j  org.springframework.boot.SpringApplication.run(Ljava/lang/Class;[Ljava/lang/String;)Lorg/springframework/context/ConfigurableApplicationContext;+9
+j  oj7.api.accesscontrol.AccesscontrolApplication.main([Ljava/lang/String;)V+3
+v  ~StubRoutines::call_stub
+J 2792  jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; java.base@11.0.15 (0 bytes) @ 0x00007f7410430a47 [0x00007f74104309c0+0x0000000000000087]
+J 2481 c1 jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; java.base@11.0.15 (104 bytes) @ 0x00007f74092c13bc [0x00007f74092c06c0+0x0000000000000cfc]
+J 6857 c2 java.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; java.base@11.0.15 (65 bytes) @ 0x00007f7410873f84 [0x00007f7410873e20+0x0000000000000164]
+j  org.springframework.boot.devtools.restart.RestartLauncher.run()V+42
+v  ~StubRoutines::call_stub
+
+siginfo: si_signo: 11 (SIGSEGV), si_code: 1 (SEGV_MAPERR), si_addr: 0x00007f7417822128
+
+Register to memory mapping:
+
+RAX=0x0000000000001043 is an unknown value
+RBX=0x00007f73e978ceb1 is pointing into the stack for thread: 0x00007f7368151800
+RCX=0x00007f73e978ced1 is pointing into the stack for thread: 0x00007f7368151800
+RDX=0x0000000000001043 is an unknown value
+RSP=0x00007f73e978ce00 is pointing into the stack for thread: 0x00007f7368151800
+RBP=0x00007f73e978ce20 is pointing into the stack for thread: 0x00007f7368151800
+RSI=0x0 is NULL
+RDI=0x00007f7424602030: <offset 0x0000000000008030> in /usr/lib/jvm/java-11-openjdk-amd64/lib/libjimage.so at 0x00007f74245fa000
+R8 =0x00007f741781e01c is an unknown value
+R9 =0x00007f73e978dcc0 is pointing into the stack for thread: 0x00007f7368151800
+R10=0x00007f74259d70e0: <offset 0x0000000000f4f0e0> in /usr/lib/jvm/java-11-openjdk-amd64/lib/server/libjvm.so at 0x00007f7424a88000
+R11=0x00007f73e978e028 is pointing into the stack for thread: 0x00007f7368151800
+R12=0x000000000000848b is an unknown value
+R13=0x00007f73e978ceb0 is pointing into the stack for thread: 0x00007f7368151800
+R14=0x0 is NULL
+R15=0x00007f736814c840 points into unknown readable memory: 0x6d69742f6176616a | 6a 61 76 61 2f 74 69 6d
+
+
+Registers:
+RAX=0x0000000000001043, RBX=0x00007f73e978ceb1, RCX=0x00007f73e978ced1, RDX=0x0000000000001043
+RSP=0x00007f73e978ce00, RBP=0x00007f73e978ce20, RSI=0x0000000000000000, RDI=0x00007f7424602030
+R8 =0x00007f741781e01c, R9 =0x00007f73e978dcc0, R10=0x00007f74259d70e0, R11=0x00007f73e978e028
+R12=0x000000000000848b, R13=0x00007f73e978ceb0, R14=0x0000000000000000, R15=0x00007f736814c840
+RIP=0x00007f74245fd0ad, EFLAGS=0x0000000000010246, CSGSFS=0x002b000000000033, ERR=0x0000000000000004
+  TRAPNO=0x000000000000000e
+
+Top of Stack: (sp=0x00007f73e978ce00)
+0x00007f73e978ce00:   0000000000000001 00007f73e978df48
+0x00007f73e978ce10:   00007f7420009be0 00007f73e978ceb0
+0x00007f73e978ce20:   00007f73e978ce90 00007f74245fdca2
+0x00007f73e978ce30:   0000000000000000 00007f74250b53a8 
+
+Instructions: (pc=0x00007f74245fd0ad)
+0x00007f74245fcfad:   f3 ff ff 44 03 65 90 e9 3f fe ff ff 0f 1f 80 00
+0x00007f74245fcfbd:   00 00 00 41 8b 10 41 89 55 00 41 8b 54 00 fc 41
+0x00007f74245fcfcd:   89 54 05 fc e9 82 fc ff ff 66 2e 0f 1f 84 00 00
+0x00007f74245fcfdd:   00 00 00 b9 0a 00 00 00 e9 f0 fc ff ff 41 0f b7
+0x00007f74245fcfed:   54 00 fe 66 41 89 54 05 fe e9 5d fc ff ff 0f 1f
+0x00007f74245fcffd:   44 00 00 f3 0f 1e fa 0f b6 17 89 f0 89 f1 4c 8d
+0x00007f74245fd00d:   47 01 84 d2 74 1f 0f 1f 44 00 00 69 c9 93 01 00
+0x00007f74245fd01d:   01 0f b6 d2 49 83 c0 01 31 d1 41 0f b6 50 ff 84
+0x00007f74245fd02d:   d2 75 e8 89 c8 25 ff ff ff 7f c3 0f 1f 84 00 00
+0x00007f74245fd03d:   00 00 00 f3 0f 1e fa 48 85 d2 0f 84 da 00 00 00
+0x00007f74245fd04d:   55 48 89 e5 41 55 41 54 41 89 cc 53 48 83 ec 08
+0x00007f74245fd05d:   85 c9 0f 84 ba 00 00 00 49 89 f5 48 8d 5e 01 0f
+0x00007f74245fd06d:   b6 36 49 89 d0 40 84 f6 0f 84 9d 00 00 00 48 89
+0x00007f74245fd07d:   d9 b8 93 01 00 01 0f 1f 44 00 00 69 d0 93 01 00
+0x00007f74245fd08d:   01 48 83 c1 01 40 0f b6 c6 0f b6 71 ff 31 d0 40
+0x00007f74245fd09d:   84 f6 75 e7 25 ff ff ff 7f 31 d2 41 f7 f4 89 d0
+0x00007f74245fd0ad:   41 8b 34 80 48 8b 07 ff 50 20 85 c0 7f 15 74 62
+0x00007f74245fd0bd:   f7 d0 41 89 c0 48 83 c4 08 44 89 c0 5b 41 5c 41
+0x00007f74245fd0cd:   5d 5d c3 41 0f b6 4d 00 89 c6 84 c9 74 1e 0f 1f
+0x00007f74245fd0dd:   44 00 00 69 f6 93 01 00 01 0f b6 c9 48 83 c3 01
+0x00007f74245fd0ed:   31 ce 0f b6 4b ff 84 c9 75 e9 89 f0 25 ff ff ff
+0x00007f74245fd0fd:   7f 31 d2 48 83 c4 08 41 f7 f4 5b 41 5c 41 5d 5d
+0x00007f74245fd10d:   41 89 d0 44 89 c0 c3 0f 1f 40 00 b8 93 01 00 01
+0x00007f74245fd11d:   eb 87 41 b8 ff ff ff ff eb 9b 41 83 c8 ff 44 89
+0x00007f74245fd12d:   c0 c3 90 f3 0f 1e fa eb 1d 66 2e 0f 1f 84 00 00
+0x00007f74245fd13d:   00 00 00 0f b6 16 84 d2 74 13 38 c2 75 15 48 83
+0x00007f74245fd14d:   c7 01 48 83 c6 01 0f b6 07 84 c0 75 e6 48 89 f8
+0x00007f74245fd15d:   c3 66 90 31 c0 c3 90 66 66 2e 0f 1f 84 00 00 00
+0x00007f74245fd16d:   00 00 90 f3 0f 1e fa 48 85 f6 74 51 0f b6 06 84
+0x00007f74245fd17d:   c0 74 4a 0f b6 d0 83 e0 07 c1 fa 03 44 8d 50 01
+0x00007f74245fd18d:   0f b6 c0 41 89 d1 4c 8d 44 06 02 48 8d 56 01 31
+0x00007f74245fd19d:   c0 66 90 0f b6 0a 48 c1 e0 08 48 83 c2 01 48 09 
+
+
+Stack slot to memory mapping:
+stack at sp + 0 slots: 0x0000000000000001 is an unknown value
+stack at sp + 1 slots: 0x00007f73e978df48 is pointing into the stack for thread: 0x00007f7368151800
+stack at sp + 2 slots: 0x00007f7420009be0 points into unknown readable memory: 0x00007f73b8003320 | 20 33 00 b8 73 7f 00 00
+stack at sp + 3 slots: 0x00007f73e978ceb0 is pointing into the stack for thread: 0x00007f7368151800
+stack at sp + 4 slots: 0x00007f73e978ce90 is pointing into the stack for thread: 0x00007f7368151800
+stack at sp + 5 slots: 0x00007f74245fdca2: <offset 0x0000000000003ca2> in /usr/lib/jvm/java-11-openjdk-amd64/lib/libjimage.so at 0x00007f74245fa000
+stack at sp + 6 slots: 0x0 is NULL
+stack at sp + 7 slots: 0x00007f74250b53a8: <offset 0x000000000062d3a8> in /usr/lib/jvm/java-11-openjdk-amd64/lib/server/libjvm.so at 0x00007f7424a88000
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00007f73b0001530, length=23, elements={
+0x00007f74201d2000, 0x00007f74201d4000, 0x00007f74201d9800, 0x00007f74201db800,
+0x00007f74201dd800, 0x00007f74201e0000, 0x00007f74201e2000, 0x00007f7420260800,
+0x00007f7420264000, 0x00007f742026a000, 0x00007f73ad5ab000, 0x00007f73ad5de000,
+0x00007f73ae0b9800, 0x00007f7420019800, 0x00007f7324003800, 0x00007f736814f800,
+0x00007f7368151000, 0x00007f7368151800, 0x00007f738c0f6000, 0x00007f738c0f7000,
+0x00007f738c037000, 0x00007f738c038800, 0x00007f733c012800
+}
+
+Java Threads: ( => current thread )
+  0x00007f74201d2000 JavaThread "Reference Handler" daemon [_thread_blocked, id=407979, stack(0x00007f73eb5fd000,0x00007f73eb6fe000)]
+  0x00007f74201d4000 JavaThread "Finalizer" daemon [_thread_blocked, id=407980, stack(0x00007f73eb4fc000,0x00007f73eb5fd000)]
+  0x00007f74201d9800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=407981, stack(0x00007f73eae89000,0x00007f73eaf8a000)]
+  0x00007f74201db800 JavaThread "Service Thread" daemon [_thread_blocked, id=407982, stack(0x00007f73ead88000,0x00007f73eae89000)]
+  0x00007f74201dd800 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=407983, stack(0x00007f73eac87000,0x00007f73ead88000)]
+  0x00007f74201e0000 JavaThread "C1 CompilerThread0" daemon [_thread_blocked, id=407984, stack(0x00007f73eab86000,0x00007f73eac87000)]
+  0x00007f74201e2000 JavaThread "Sweeper thread" daemon [_thread_blocked, id=407985, stack(0x00007f73eaa85000,0x00007f73eab86000)]
+  0x00007f7420260800 JavaThread "JDWP Transport Listener: dt_socket" daemon [_thread_in_native, id=407988, stack(0x00007f73ea883000,0x00007f73ea984000)]
+  0x00007f7420264000 JavaThread "JDWP Event Helper Thread" daemon [_thread_blocked, id=407989, stack(0x00007f73ea782000,0x00007f73ea883000)]
+  0x00007f742026a000 JavaThread "Common-Cleaner" daemon [_thread_blocked, id=407999, stack(0x00007f73ea984000,0x00007f73eaa85000)]
+  0x00007f73ad5ab000 JavaThread "oracle.jdbc.driver.BlockSource.ThreadedCachingBlockSource.BlockReleaser" daemon [_thread_blocked, id=408074, stack(0x00007f7377cff000,0x00007f7377e00000)]
+  0x00007f73ad5de000 JavaThread "InterruptTimer" daemon [_thread_blocked, id=408075, stack(0x00007f7377bfe000,0x00007f7377cff000)]
+  0x00007f73ae0b9800 JavaThread "Live Reload Server" daemon [_thread_in_native, id=408190, stack(0x00007f737706d000,0x00007f737716e000)]
+  0x00007f7420019800 JavaThread "DestroyJavaVM" [_thread_blocked, id=407972, stack(0x00007f742463b000,0x00007f742473c000)]
+  0x00007f7324003800 JavaThread "Thread-8" [_thread_blocked, id=993842, stack(0x00007f73778fd000,0x00007f73779fe000)]
+  0x00007f736814f800 JavaThread "File Watcher" daemon [_thread_blocked, id=993952, stack(0x00007f7375160000,0x00007f7375261000)]
+  0x00007f7368151000 JavaThread "File Watcher" daemon [_thread_blocked, id=993967, stack(0x00007f73777fc000,0x00007f73778fd000)]
+=>0x00007f7368151800 JavaThread "restartedMain" [_thread_in_vm, id=993969, stack(0x00007f73e9694000,0x00007f73e9795000)]
+  0x00007f738c0f6000 JavaThread "Catalina-utility-1" [_thread_blocked, id=993987, stack(0x00007f73e981f000,0x00007f73e9920000)]
+  0x00007f738c0f7000 JavaThread "Catalina-utility-2" [_thread_blocked, id=993988, stack(0x00007f73e8891000,0x00007f73e8992000)]
+  0x00007f738c037000 JavaThread "container-2" [_thread_blocked, id=993989, stack(0x00007f73e84e7000,0x00007f73e85e8000)]
+  0x00007f738c038800 JavaThread "HikariPool-2 housekeeper" daemon [_thread_blocked, id=993994, stack(0x00007f7375766000,0x00007f7375867000)]
+  0x00007f733c012800 JavaThread "HikariPool-2 connection adder" daemon [_thread_blocked, id=993997, stack(0x00007f7375968000,0x00007f7375a69000)]
+
+Other Threads:
+  0x00007f74201cf000 VMThread "VM Thread" [stack: 0x00007f73eb700000,0x00007f73eb800000] [id=407978]
+  0x00007f7420266800 WatcherThread [stack: 0x00007f73ea581000,0x00007f73ea681000] [id=407998]
+  0x00007f7420031800 GCTaskThread "GC Thread#0" [stack: 0x00007f74242ae000,0x00007f74243ae000] [id=407973]
+  0x00007f73e0001000 GCTaskThread "GC Thread#1" [stack: 0x00007f73ea27d000,0x00007f73ea37d000] [id=408032]
+  0x00007f73e0002800 GCTaskThread "GC Thread#2" [stack: 0x00007f73ea17b000,0x00007f73ea27b000] [id=408033]
+  0x00007f73e0004000 GCTaskThread "GC Thread#3" [stack: 0x00007f73ea079000,0x00007f73ea179000] [id=408034]
+  0x00007f73e0005800 GCTaskThread "GC Thread#4" [stack: 0x00007f73e9f77000,0x00007f73ea077000] [id=408035]
+  0x00007f73e0007000 GCTaskThread "GC Thread#5" [stack: 0x00007f73e9e75000,0x00007f73e9f75000] [id=408036]
+  0x00007f73e00d4800 GCTaskThread "GC Thread#6" [stack: 0x00007f73e81e7000,0x00007f73e82e7000] [id=408072]
+  0x00007f73e00d6000 GCTaskThread "GC Thread#7" [stack: 0x00007f73e80e5000,0x00007f73e81e5000] [id=408073]
+  0x00007f742008f800 ConcurrentGCThread "G1 Main Marker" [stack: 0x00007f7408017000,0x00007f7408117000] [id=407974]
+  0x00007f7420091800 ConcurrentGCThread "G1 Conc#0" [stack: 0x00007f73fab9a000,0x00007f73fac9a000] [id=407975]
+  0x00007f73f4001000 ConcurrentGCThread "G1 Conc#1" [stack: 0x00007f73e8d94000,0x00007f73e8e94000] [id=408045]
+  0x00007f7420191800 ConcurrentGCThread "G1 Refine#0" [stack: 0x00007f73f8290000,0x00007f73f8390000] [id=407976]
+  0x00007f7420193000 ConcurrentGCThread "G1 Young RemSet Sampling" [stack: 0x00007f73f818e000,0x00007f73f828e000] [id=407977]
+
+Threads with active compile tasks:
+
+VM state:synchronizing (normal execution)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x00007f74200160b0] Threads_lock - owner thread: 0x00007f74201cf000
+
+Heap address: 0x0000000707c00000, size: 3972 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
+Narrow klass base: 0x0000000800000000, Narrow klass shift: 3
+Compressed class space size: 1073741824 Address: 0x0000000840000000
+
+Heap:
+ garbage-first heap   total 96256K, used 58982K [0x0000000707c00000, 0x0000000800000000)
+  region size 1024K, 30 young (30720K), 6 survivors (6144K)
+ Metaspace       used 76752K, capacity 78882K, committed 79232K, reserved 1118208K
+  class space    used 9395K, capacity 10244K, committed 10368K, reserved 1048576K
+Heap Regions: E=young(eden), S=young(survivor), O=old, HS=humongous(starts), HC=humongous(continues), CS=collection set, F=free, A=archive, TAMS=top-at-mark-start (previous, next)
+|   0|0x0000000707c00000, 0x0000000707d00000, 0x0000000707d00000|100%|HS|  |TAMS 0x0000000707c00000, 0x0000000707c00000| Untracked 
+|   1|0x0000000707d00000, 0x0000000707dfffc0, 0x0000000707e00000| 99%| O|  |TAMS 0x0000000707d00000, 0x0000000707d00000| Untracked 
+|   2|0x0000000707e00000, 0x0000000707f00000, 0x0000000707f00000|100%| O|  |TAMS 0x0000000707e00000, 0x0000000707e00000| Untracked 
+|   3|0x0000000707f00000, 0x0000000707fffff8, 0x0000000708000000| 99%| O|  |TAMS 0x0000000707f00000, 0x0000000707f00000| Untracked 
+|   4|0x0000000708000000, 0x0000000708100000, 0x0000000708100000|100%| O|  |TAMS 0x0000000708000000, 0x0000000708000000| Untracked 
+|   5|0x0000000708100000, 0x00000007081fffd8, 0x0000000708200000| 99%| O|  |TAMS 0x0000000708100000, 0x0000000708100000| Untracked 
+|   6|0x0000000708200000, 0x00000007082ffff8, 0x0000000708300000| 99%| O|  |TAMS 0x0000000708200000, 0x0000000708200000| Untracked 
+|   7|0x0000000708300000, 0x00000007083ffff8, 0x0000000708400000| 99%| O|  |TAMS 0x0000000708300000, 0x0000000708300000| Untracked 
+|   8|0x0000000708400000, 0x0000000708500000, 0x0000000708500000|100%| O|  |TAMS 0x0000000708400000, 0x0000000708400000| Untracked 
+|   9|0x0000000708500000, 0x00000007085fffd0, 0x0000000708600000| 99%| O|  |TAMS 0x0000000708500000, 0x0000000708500000| Untracked 
+|  10|0x0000000708600000, 0x00000007086fffa8, 0x0000000708700000| 99%| O|  |TAMS 0x0000000708600000, 0x0000000708600000| Untracked 
+|  11|0x0000000708700000, 0x00000007087fff88, 0x0000000708800000| 99%| O|  |TAMS 0x0000000708700000, 0x0000000708700000| Untracked 
+|  12|0x0000000708800000, 0x00000007088ffff0, 0x0000000708900000| 99%| O|  |TAMS 0x0000000708800000, 0x0000000708800000| Untracked 
+|  13|0x0000000708900000, 0x00000007089fffa8, 0x0000000708a00000| 99%| O|  |TAMS 0x0000000708900000, 0x0000000708900000| Untracked 
+|  14|0x0000000708a00000, 0x0000000708afffc0, 0x0000000708b00000| 99%| O|  |TAMS 0x0000000708a00000, 0x0000000708a00000| Untracked 
+|  15|0x0000000708b00000, 0x0000000708bfffe0, 0x0000000708c00000| 99%| O|  |TAMS 0x0000000708b00000, 0x0000000708b00000| Untracked 
+|  16|0x0000000708c00000, 0x0000000708cffff0, 0x0000000708d00000| 99%| O|  |TAMS 0x0000000708c00000, 0x0000000708c00000| Untracked 
+|  17|0x0000000708d00000, 0x0000000708e00000, 0x0000000708e00000|100%| O|  |TAMS 0x0000000708d00000, 0x0000000708d00000| Untracked 
+|  18|0x0000000708e00000, 0x0000000708effcb8, 0x0000000708f00000| 99%| O|  |TAMS 0x0000000708e00000, 0x0000000708e00000| Untracked 
+|  19|0x0000000708f00000, 0x0000000708fffc18, 0x0000000709000000| 99%| O|  |TAMS 0x0000000708f00000, 0x0000000708f00000| Untracked 
+|  20|0x0000000709000000, 0x00000007090e6b30, 0x0000000709100000| 90%| O|  |TAMS 0x0000000709000000, 0x0000000709000000| Untracked 
+|  21|0x0000000709100000, 0x00000007091a4b40, 0x0000000709200000| 64%| O|  |TAMS 0x0000000709100000, 0x0000000709100000| Untracked 
+|  22|0x0000000709200000, 0x0000000709208c90, 0x0000000709300000|  3%| O|  |TAMS 0x0000000709200000, 0x0000000709200000| Untracked 
+|  23|0x0000000709300000, 0x000000070939e390, 0x0000000709400000| 61%| O|  |TAMS 0x0000000709300000, 0x0000000709300000| Untracked 
+|  24|0x0000000709400000, 0x0000000709418c68, 0x0000000709500000|  9%| O|  |TAMS 0x0000000709400000, 0x0000000709400000| Untracked 
+|  25|0x0000000709500000, 0x0000000709600000, 0x0000000709600000|100%| O|  |TAMS 0x0000000709500000, 0x0000000709500000| Untracked 
+|  26|0x0000000709600000, 0x00000007096926b0, 0x0000000709700000| 57%| O|  |TAMS 0x0000000709600000, 0x0000000709600000| Untracked 
+|  27|0x0000000709700000, 0x0000000709800000, 0x0000000709800000|100%| O|  |TAMS 0x0000000709700000, 0x0000000709700000| Untracked 
+|  28|0x0000000709800000, 0x0000000709900000, 0x0000000709900000|100%| O|  |TAMS 0x0000000709800000, 0x0000000709800000| Untracked 
+|  29|0x0000000709900000, 0x0000000709a00000, 0x0000000709a00000|100%| O|  |TAMS 0x0000000709900000, 0x0000000709900000| Untracked 
+|  30|0x0000000709a00000, 0x0000000709b00000, 0x0000000709b00000|100%| O|  |TAMS 0x0000000709a00000, 0x0000000709a00000| Untracked 
+|  31|0x0000000709b00000, 0x0000000709b95c00, 0x0000000709c00000| 58%| O|  |TAMS 0x0000000709b00000, 0x0000000709b00000| Untracked 
+|  32|0x0000000709c00000, 0x0000000709c00000, 0x0000000709d00000|  0%| F|  |TAMS 0x0000000709c00000, 0x0000000709c00000| Untracked 
+|  33|0x0000000709d00000, 0x0000000709d00000, 0x0000000709e00000|  0%| F|  |TAMS 0x0000000709d00000, 0x0000000709d00000| Untracked 
+|  34|0x0000000709e00000, 0x0000000709e00000, 0x0000000709f00000|  0%| F|  |TAMS 0x0000000709e00000, 0x0000000709e00000| Untracked 
+|  35|0x0000000709f00000, 0x0000000709f00000, 0x000000070a000000|  0%| F|  |TAMS 0x0000000709f00000, 0x0000000709f00000| Untracked 
+|  36|0x000000070a000000, 0x000000070a000000, 0x000000070a100000|  0%| F|  |TAMS 0x000000070a000000, 0x000000070a000000| Untracked 
+|  37|0x000000070a100000, 0x000000070a100000, 0x000000070a200000|  0%| F|  |TAMS 0x000000070a100000, 0x000000070a100000| Untracked 
+|  38|0x000000070a200000, 0x000000070a200000, 0x000000070a300000|  0%| F|  |TAMS 0x000000070a200000, 0x000000070a200000| Untracked 
+|  39|0x000000070a300000, 0x000000070a374d60, 0x000000070a400000| 45%| S|CS|TAMS 0x000000070a300000, 0x000000070a300000| Complete 
+|  40|0x000000070a400000, 0x000000070a500000, 0x000000070a500000|100%| S|CS|TAMS 0x000000070a400000, 0x000000070a400000| Complete 
+|  41|0x000000070a500000, 0x000000070a600000, 0x000000070a600000|100%| S|CS|TAMS 0x000000070a500000, 0x000000070a500000| Complete 
+|  42|0x000000070a600000, 0x000000070a700000, 0x000000070a700000|100%| S|CS|TAMS 0x000000070a600000, 0x000000070a600000| Complete 
+|  43|0x000000070a700000, 0x000000070a800000, 0x000000070a800000|100%| S|CS|TAMS 0x000000070a700000, 0x000000070a700000| Complete 
+|  44|0x000000070a800000, 0x000000070a900000, 0x000000070a900000|100%| S|CS|TAMS 0x000000070a800000, 0x000000070a800000| Complete 
+|  45|0x000000070a900000, 0x000000070a900000, 0x000000070aa00000|  0%| F|  |TAMS 0x000000070a900000, 0x000000070a900000| Untracked 
+|  46|0x000000070aa00000, 0x000000070aa00000, 0x000000070ab00000|  0%| F|  |TAMS 0x000000070aa00000, 0x000000070aa00000| Untracked 
+|  47|0x000000070ab00000, 0x000000070ab00000, 0x000000070ac00000|  0%| F|  |TAMS 0x000000070ab00000, 0x000000070ab00000| Untracked 
+|  48|0x000000070ac00000, 0x000000070ac00000, 0x000000070ad00000|  0%| F|  |TAMS 0x000000070ac00000, 0x000000070ac00000| Untracked 
+|  49|0x000000070ad00000, 0x000000070ad00000, 0x000000070ae00000|  0%| F|  |TAMS 0x000000070ad00000, 0x000000070ad00000| Untracked 
+|  50|0x000000070ae00000, 0x000000070ae00000, 0x000000070af00000|  0%| F|  |TAMS 0x000000070ae00000, 0x000000070ae00000| Untracked 
+|  51|0x000000070af00000, 0x000000070af00000, 0x000000070b000000|  0%| F|  |TAMS 0x000000070af00000, 0x000000070af00000| Untracked 
+|  52|0x000000070b000000, 0x000000070b000000, 0x000000070b100000|  0%| F|  |TAMS 0x000000070b000000, 0x000000070b000000| Untracked 
+|  53|0x000000070b100000, 0x000000070b100000, 0x000000070b200000|  0%| F|  |TAMS 0x000000070b100000, 0x000000070b100000| Untracked 
+|  54|0x000000070b200000, 0x000000070b200000, 0x000000070b300000|  0%| F|  |TAMS 0x000000070b200000, 0x000000070b200000| Untracked 
+|  55|0x000000070b300000, 0x000000070b300000, 0x000000070b400000|  0%| F|  |TAMS 0x000000070b300000, 0x000000070b300000| Untracked 
+|  56|0x000000070b400000, 0x000000070b400000, 0x000000070b500000|  0%| F|  |TAMS 0x000000070b400000, 0x000000070b400000| Untracked 
+|  57|0x000000070b500000, 0x000000070b500000, 0x000000070b600000|  0%| F|  |TAMS 0x000000070b500000, 0x000000070b500000| Untracked 
+|  58|0x000000070b600000, 0x000000070b600000, 0x000000070b700000|  0%| F|  |TAMS 0x000000070b600000, 0x000000070b600000| Untracked 
+|  59|0x000000070b700000, 0x000000070b700000, 0x000000070b800000|  0%| F|  |TAMS 0x000000070b700000, 0x000000070b700000| Untracked 
+|  60|0x000000070b800000, 0x000000070b800000, 0x000000070b900000|  0%| F|  |TAMS 0x000000070b800000, 0x000000070b800000| Untracked 
+|  61|0x000000070b900000, 0x000000070b900000, 0x000000070ba00000|  0%| F|  |TAMS 0x000000070b900000, 0x000000070b900000| Untracked 
+|  62|0x000000070ba00000, 0x000000070ba00000, 0x000000070bb00000|  0%| F|  |TAMS 0x000000070ba00000, 0x000000070ba00000| Untracked 
+|  63|0x000000070bb00000, 0x000000070bb00000, 0x000000070bc00000|  0%| F|  |TAMS 0x000000070bb00000, 0x000000070bb00000| Untracked 
+|  64|0x000000070bc00000, 0x000000070bc00000, 0x000000070bd00000|  0%| F|  |TAMS 0x000000070bc00000, 0x000000070bc00000| Untracked 
+|  65|0x000000070bd00000, 0x000000070bd00000, 0x000000070be00000|  0%| F|  |TAMS 0x000000070bd00000, 0x000000070bd00000| Untracked 
+|  66|0x000000070be00000, 0x000000070be00000, 0x000000070bf00000|  0%| F|  |TAMS 0x000000070be00000, 0x000000070be00000| Untracked 
+|  67|0x000000070bf00000, 0x000000070bf00000, 0x000000070c000000|  0%| F|  |TAMS 0x000000070bf00000, 0x000000070bf00000| Untracked 
+|  68|0x000000070c000000, 0x000000070c100000, 0x000000070c100000|100%| E|  |TAMS 0x000000070c000000, 0x000000070c000000| Complete 
+|  69|0x000000070c100000, 0x000000070c200000, 0x000000070c200000|100%| E|CS|TAMS 0x000000070c100000, 0x000000070c100000| Complete 
+|  70|0x000000070c200000, 0x000000070c300000, 0x000000070c300000|100%| E|CS|TAMS 0x000000070c200000, 0x000000070c200000| Complete 
+|  71|0x000000070c300000, 0x000000070c400000, 0x000000070c400000|100%| E|CS|TAMS 0x000000070c300000, 0x000000070c300000| Complete 
+|  72|0x000000070c400000, 0x000000070c500000, 0x000000070c500000|100%| E|CS|TAMS 0x000000070c400000, 0x000000070c400000| Complete 
+|  73|0x000000070c500000, 0x000000070c600000, 0x000000070c600000|100%| E|CS|TAMS 0x000000070c500000, 0x000000070c500000| Complete 
+|  74|0x000000070c600000, 0x000000070c700000, 0x000000070c700000|100%| E|CS|TAMS 0x000000070c600000, 0x000000070c600000| Complete 
+|  75|0x000000070c700000, 0x000000070c800000, 0x000000070c800000|100%| E|CS|TAMS 0x000000070c700000, 0x000000070c700000| Complete 
+|  76|0x000000070c800000, 0x000000070c900000, 0x000000070c900000|100%| E|CS|TAMS 0x000000070c800000, 0x000000070c800000| Complete 
+|  77|0x000000070c900000, 0x000000070ca00000, 0x000000070ca00000|100%| E|CS|TAMS 0x000000070c900000, 0x000000070c900000| Complete 
+|  78|0x000000070ca00000, 0x000000070cb00000, 0x000000070cb00000|100%| E|CS|TAMS 0x000000070ca00000, 0x000000070ca00000| Complete 
+|  79|0x000000070cb00000, 0x000000070cc00000, 0x000000070cc00000|100%| E|CS|TAMS 0x000000070cb00000, 0x000000070cb00000| Complete 
+|  80|0x000000070cc00000, 0x000000070cd00000, 0x000000070cd00000|100%| E|CS|TAMS 0x000000070cc00000, 0x000000070cc00000| Complete 
+|  81|0x000000070cd00000, 0x000000070ce00000, 0x000000070ce00000|100%| E|CS|TAMS 0x000000070cd00000, 0x000000070cd00000| Complete 
+|  82|0x000000070ce00000, 0x000000070cf00000, 0x000000070cf00000|100%| E|CS|TAMS 0x000000070ce00000, 0x000000070ce00000| Complete 
+|  83|0x000000070cf00000, 0x000000070d000000, 0x000000070d000000|100%| E|CS|TAMS 0x000000070cf00000, 0x000000070cf00000| Complete 
+|  84|0x000000070d000000, 0x000000070d100000, 0x000000070d100000|100%| E|CS|TAMS 0x000000070d000000, 0x000000070d000000| Complete 
+|  85|0x000000070d100000, 0x000000070d200000, 0x000000070d200000|100%| E|CS|TAMS 0x000000070d100000, 0x000000070d100000| Complete 
+|  86|0x000000070d200000, 0x000000070d300000, 0x000000070d300000|100%| E|CS|TAMS 0x000000070d200000, 0x000000070d200000| Complete 
+|  87|0x000000070d300000, 0x000000070d400000, 0x000000070d400000|100%| E|CS|TAMS 0x000000070d300000, 0x000000070d300000| Complete 
+|  88|0x000000070d400000, 0x000000070d500000, 0x000000070d500000|100%| E|CS|TAMS 0x000000070d400000, 0x000000070d400000| Complete 
+|  89|0x000000070d500000, 0x000000070d600000, 0x000000070d600000|100%| E|CS|TAMS 0x000000070d500000, 0x000000070d500000| Complete 
+|  90|0x000000070d600000, 0x000000070d700000, 0x000000070d700000|100%| E|CS|TAMS 0x000000070d600000, 0x000000070d600000| Complete 
+|  91|0x000000070d700000, 0x000000070d800000, 0x000000070d800000|100%| E|CS|TAMS 0x000000070d700000, 0x000000070d700000| Complete 
+|2946|0x00000007bfe00000, 0x00000007bfe47000, 0x00000007bff00000| 27%|OA|  |TAMS 0x00000007bfe47000, 0x00000007bfe00000| Untracked 
+|2947|0x00000007bff00000, 0x00000007bff6b000, 0x00000007c0000000| 41%|CA|  |TAMS 0x00000007bff6b000, 0x00000007bff00000| Untracked 
+
