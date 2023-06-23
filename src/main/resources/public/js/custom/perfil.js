@@ -1,3 +1,4 @@
+
 new Vue({
   el: "#app",
   vuetify: new Vuetify(),
@@ -12,6 +13,15 @@ new Vue({
     listaOi: [],
     listaCompletaOi: [],
     snack: { open: false, text: "", color: "", timeout: 2000 },
+    menus: [
+      {
+        "cdSeqlMenu": -1,
+        "cdSeqlSist": -1,
+        "nmMenu": "Fatura",
+        "deRota": "TFrmFatura"
+      }
+    ],
+    drawer: false
   },
   watch: {
     cpf(val) {
@@ -78,11 +88,11 @@ new Vue({
         })
         .catch(
           () =>
-            (this.snack = {
-              open: true,
-              text: "Erro :( ",
-              color: "red",
-            })
+          (this.snack = {
+            open: true,
+            text: "Erro :( ",
+            color: "red",
+          })
         );
     },
     desassociaPerfil(item) {
@@ -134,11 +144,11 @@ new Vue({
         })
         .catch(
           () =>
-            (this.snack = {
-              open: true,
-              text: "Erro :( ",
-              color: "red",
-            })
+          (this.snack = {
+            open: true,
+            text: "Erro :( ",
+            color: "red",
+          })
         );
     },
     handleChangeModulo(item) {

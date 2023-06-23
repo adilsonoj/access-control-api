@@ -5,6 +5,8 @@ import java.io.FileReader;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,11 +34,11 @@ public class ModuloController {
     return ResponseEntity.ok(service.findAll());
   }
 
-  @GetMapping(path="csv")
-  public ResponseEntity<List<CsvModel>> csvRead(){
+  @GetMapping(path = "csv")
+  public ResponseEntity<List<CsvModel>> csvRead() {
     try {
       List<CsvModel> beans = new CsvToBeanBuilder(new FileReader("/home/arsenal/yourfile.csv"))
-      .withType(CsvModel.class).build().parse();
+          .withType(CsvModel.class).build().parse();
 
       return ResponseEntity.ok(beans);
     } catch (IllegalStateException e) {
