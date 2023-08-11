@@ -9,14 +9,14 @@
     <!-- <v-navigation-drawer app    v-model="drawer">
           <v-bmenu :itens="menus"></v-bmenu>
         </v-navigation-drawer> -->
-    <v-app-bar app>
+    <!-- <v-app-bar app>
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
       <v-toolbar-title>Application</v-toolbar-title>
-    </v-app-bar>
+    </v-app-bar> -->
 
     <v-main>
-      <v-container>
+      <v-container class="mt-10">
 
         <v-row>
           <v-col cols="3">
@@ -92,29 +92,12 @@
           </v-col>
         </v-row>
 
-
-
-
-
-
-        <!-- <teste />
-
-            <snackbar
-            :open="snack.open"
-            :text="snack.text"
-            :color="snack.color"
-            @close="snack.open = false"
-          />   -->
       </v-container>
     </v-main>
   </v-app>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
-  <script src="http://localhost:8082/v-bmenu.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/javascript-debounce@1.0.1/dist/javascript-debounce.js"></script>
+
   <script src="js/custom/perfil.js"></script>
   <script src="js/components/teste.js"></script>
   <script src="js/components/snackbar.js"></script>
